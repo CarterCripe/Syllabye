@@ -1,7 +1,7 @@
 # Syllabye
 Say goodbye to syllabi
 
-## Team Info
+## Team Info:
 - **Carter Cripe** – Team Lead / Visionary / Full Stack Developer
 - **Justin Primc** – Full Stack Developer
 - **Brennan Duman** – Full Stack Developer
@@ -19,4 +19,4 @@ syllabye/
 └── README.md  # This file
 ```
 
-**Course**: CS 362 - Software Engineering II (Winter 2026)
+**Course**: CS 362 - Software Engineering II (Winter 2026), Group 13
