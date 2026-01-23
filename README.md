@@ -1,4 +1,4 @@
-# Syllabye
+# Syllabye: (Group 13)
 Say goodbye to syllabi
 
 ## Team Info:
@@ -19,4 +19,4 @@ syllabye/
 └── README.md  # This file
 ```
 
-**Course**: CS 362 - Software Engineering II (Winter 2026), Group 13
+**Course**: CS 362 - Software Engineering II (Winter 2026)
