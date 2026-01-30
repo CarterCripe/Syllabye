@@ -1,28 +1,56 @@
-## Group 13 Week 4 Report
-**Date:** 01-29-2026
+# Week 4: Architecture and Design
 
-### Goals from Last Week
+## Team Report (Group 13)
+
+### Goals planned for this week:
 - Completed project idea finalization
 
-### Progress
-- Completed unfinished pieces of previous project milestones
-- Added Primary and Stretch Goals for the project
-- Updated the team's roles and included members' project work schedules
+### Team progress and issues:
+- **What the team did:** Completed unfinished pieces of previous project milestones, added Primary and Stretch Goals for the project, and updated each team member's roles.
+- **What worked:** Successfully aligned team documentation with assigned milestones
+- **What team learned:** Learned the basics of creating a webpage extension.
+- **Where the team had trouble and where the team is stuck:** The team is not stuck currently; we are just slightly behind in the completion of the project milestones.
 
-### Plans and Goals for Next Week
-- Finishing any milestones available (#3), starting work on the backend application, and a rough draft of the frontend concept.
+### Goals planned for next week:
+- Complete any remaining milestones (#3) (1 day)
+- Start work on backend application (3 days)
+- Create rough draft of frontend concept (3 days)
 
-## Individual Contributions
+## Contributions of Individual Team Members
+
 ### Brennan Duman:
-- **Goals From Last Week:** Finalized project idea and plan. 
-- **Progress:** Updated the team's working document to match the assigned milestones.
-- **Plans:** Create a rough draft for the frontend of the application.
+**Goals planned for this week:** Finalized project idea and plan
+
+**Team progress and issues:**
+- **What team member did:**
+- **What worked:** 
+- **What team member learned:**
+- **Where the team member had trouble and where the team member is stuck:**
+
+**Goals planned for next week:**
+- Create rough draft for the frontend of the application (3 days)
+
 ### Carter Cripe:
-- **Goals From Last Week:** Finalized project idea and plan. 
-- **Progress:** Updated the team's working document to match the assigned milestones.
-- **Plans:** Start working on the backend portion of the application.
+**Goals planned for this week:** Finalized project idea and plan
+
+**Team progress and issues:**
+- **What team member did:**
+- **What worked:**
+- **What team member learned:**
+- **Where the team member had trouble and where the team member is stuck:**
+
+**Goals planned for next week:**
+- Start working on the backend portion of the application (3 days)
+
 ### Justin Primc:
-- **Goals From Last Week:** Finalized project idea and plan.
-- **Progress:** Completed the group's weekly report and added the basic formatting for reports moving into upcoming weeks.
-Helped update team sections of the shared document.
-- **Plans:** Help with the creation of the backend, and advise the rough draft creation for the frontend.
+**Goals planned for this week:** Finalized project idea and plan
+
+**Team progress and issues:**
+- **What team member did:** Completed the group's weekly report and added the basic formatting for reports moving into upcoming weeks. Helped update team sections of the shared document
+- **What worked:** Following the given basic structure for the report made it easy to complete. Communcaion between teammates to assign tasks and plan for the upcoming weeks.
+- **What team member learned:** Learned how to better communicate with the members within this project, and with the teaching staff.
+- **Where team member had trouble and where team member is stuck:** No real challenges other than getting the report formatting to match that which the professor requires.
+
+**Goals planned for next week:**
+- Help with creation of the backend (3 days)
+- Help with creation and feedback for the frontend rough draft (2 days)
