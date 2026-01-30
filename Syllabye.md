@@ -10,9 +10,9 @@ Nearly every class has a different set of rules/policies, whether it’s regardi
 
 ## Team
 
-* Carter Cripe – Team Lead / Visionary / Full Stack Developer  
+* Carter Cripe – Team Lead / Visionary / Backend Developer  
 * Justin Primc – Full Stack Developer  
-* Brennan Duman – Full Stack Developer
+* Brennan Duman – Front End Developer
 
 ## Relevant Links
 
@@ -190,3 +190,36 @@ Week 9:
 - Final testing and bug fixes  
 - Submit all deliverables and prepare for the final presentation
 
+# Team Process
+
+## Toolset
+
+Backend: Flask Python API – Industry standard, team familiarity  
+Frontend: React – Industry standard, commonly used for web-based applications
+
+## Team Roles & Schedule
+
+* Carter Cripe – Supreme Leader / Visionary / Backend Developer: Came up with idea, familiar with Flask  
+  * Week 5: Function Layout for flask API \- Use Case 1  
+  * Week 6: Sending and receiving data with frontend functional \- Use Case 1  
+  * Week 7: Data sorting and processing functional \- Use Case 2  
+  * Week 8-9 Testing and Refinement \- All Use Cases  
+* Justin Primc – Full Stack Developer: Has experience with backend & frontend  
+* Brennan Duman – Front End Developer: Has experience with HTML/CSS Web design  
+  * Week 5: Proof of Concept (hard coded) – Use Case 2  
+  * Week 7: API Integration – Use Case 1 & 3  
+  * Week 8-9: Testing & Refinement – All Use Cases
+
+## Major Risks
+
+1. Lack of time. Due to a variety of circumstances, our timeline has been delayed significantly.  
+2. Backend issues.  
+   1. Saving/Retrieving information from computer  
+   2. Accessing LLM API  
+3. Frontend issues.  
+   1. Usability problems  
+   2. Small user window due to being an extension
+
+## External Feedback
+
+Feedback is best accepted at all levels, but would be best accepted during the integration between front and back ends, as this fundamentally represents the user experience. Similarly, feedback for drafts of the frontend are important even when divorced from file access, as it determines the user’s initial interaction with the extension. 
