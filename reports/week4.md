@@ -22,10 +22,10 @@
 **Goals planned for this week:** Finalized project idea and plan
 
 **Team progress and issues:**
-- **What team member did:**
-- **What worked:** 
-- **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:**
+- **What team member did:** Spearheaded team effort to catch up on past milestones.
+- **What worked:** Being able to sit down with the group and effectively communicate the areas where effort was needed.
+- **What team member learned:** Learned how to better communicate with the rest of the team, as well as the various systems needed to update the customer (aka the teaching staff).
+- **Where the team member had trouble and where the team member is stuck:** In terms of the work done, it was fairly straight forward. Not currently stuck, but is unfamiliar with the chosen frontend framework and may require assistance in the future.
 
 **Goals planned for next week:**
 - Create rough draft for the frontend of the application (3 days)
@@ -54,3 +54,4 @@
 **Goals planned for next week:**
 - Help with creation of the backend (3 days)
 - Help with creation and feedback for the frontend rough draft (2 days)
+
