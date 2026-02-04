@@ -37,10 +37,10 @@
 - **Where the team member had trouble and where the team member is stuck:**
 
 **Goals planned for next week:**
-- Start working on the backend portion of the application (3 days)
+- 
 
 ### Justin Primc:
-**Goals planned for this week:** Finalized project idea and plan
+**Goals planned for this week:**
 
 **Team progress and issues:**
 - **What team member did:**
