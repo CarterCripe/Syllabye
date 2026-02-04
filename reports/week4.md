@@ -3,7 +3,7 @@
 ## Team Report (Group 13)
 
 ### Goals planned for this week:
-- Complete any missing pieces in previously assigned project milestones (Milestone 1 & 2).
+- Complete any missing pieces in previously assigned project milestones (Milestone 1 & 2), specifically our project report and goals for the project.
 
 ### Team progress and issues:
 - **What the team did:** Completed unfinished pieces of previous project milestones 1 & 2 by adding the Primary and Stretch Goals for the project. The requirements section that has three user stories and three non-functional requirements, and any external requirements required for the project. Along with updating each of the team members' roles to fit the scope of the project.
@@ -36,13 +36,13 @@
     * This implementation will consist soley of navigation between pages. Styling and other content will not be applied, apart from a short text description describing the basic function each page will fulfill.
 
 ### Carter Cripe:
-**Goals planned for this week:** Quantify project architecture
+**Goals planned for this week:** Quantify project architecture by determining frontend and backend software choices
 
 **Team progress and issues:** 
-- **What team member did:** 
-- **What worked:**
-- **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:**
+- **What team member did:** Expanded on existing project plan by adding sections for project architecture and technical requirements, and researched google's extension system. 
+- **What worked:** Meeting with the whole group to discus areas where people had experience and which areas we wanted to avoid for the project.
+- **What team member learned:** I learned that the google extension system is very simple to work with, and for us to make our site into an extension we can build our project as if it was a normal website, and then convert it into an extension later on into the project once we have the framework in place.
+- **Where the team member had trouble and where the team member is stuck:** There were no issues with the project process, but one issue that I had was that I initially forgot to fill out this section of the report which became an issue. We as a group also had some issues with the quality of our report, and so we met as a team to improve our report. 
 
 **Goals planned for next week:**
 - Create a function layout of the project backend containing input / output structure, as well as data processing plan
@@ -59,6 +59,7 @@
 **Goals planned for next week:**
 - Help with creation of the backend (3 days)
 - Help with creation and feedback for the frontend rough draft (2 days)
+
 
 
 
