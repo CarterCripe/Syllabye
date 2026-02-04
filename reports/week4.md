@@ -3,12 +3,12 @@
 ## Team Report (Group 13)
 
 ### Goals planned for this week:
-- Completed project idea finalization
+- Complete any missing pieces in previously assigned project milestones (Milestone 1 & 2).
 
 ### Team progress and issues:
-- **What the team did:** Completed unfinished pieces of previous project milestones, added Primary and Stretch Goals for the project, and updated each team member's roles.
+- **What the team did:** Completed unfinished pieces of previous project milestones 1 & 2 by adding the Primary and Stretch Goals for the project. The requirements section that has three user stories and three non-functional requirements, and any external requirements required for the project. Along with updating each of the team members' roles to fit the scope of the project.
 - **What worked:** Successfully aligned team documentation with assigned milestones
-- **What team learned:** Learned the basics of creating a webpage extension.
+- **What team learned:** Learned the basics of creating a webpage extension through the React interface.
 - **Where the team had trouble and where the team is stuck:** The team is not stuck currently; we are just slightly behind in the completion of the project milestones.
 
 ### Goals planned for next week:
@@ -46,13 +46,14 @@
 **Goals planned for this week:** Finalized project idea and plan
 
 **Team progress and issues:**
-- **What team member did:** Completed the group's weekly report and added the basic formatting for reports moving into upcoming weeks. Helped update team sections of the shared document
-- **What worked:** Following the given basic structure for the report made it easy to complete. Communcaion between teammates to assign tasks and plan for the upcoming weeks.
+- **What team member did:** Completed most of the group's weekly report and added the basic formatting for the reports moving into upcoming weeks. Helped update team sections of the shared document. Also worked on  completing the Requirements section of the document, which included a user story, three non-functional requirements, and the assigned external requirements.
+- **What worked:** Following the given basic structure for the report and using previous knowledge in how to create user stories and non-functional requirements made it a fairly simple task. Communcaion between teammates to assign tasks and plan for the upcoming weeks.
 - **What team member learned:** Learned how to better communicate with the members within this project, and with the teaching staff.
 - **Where team member had trouble and where team member is stuck:** No real challenges other than getting the report formatting to match that which the professor requires.
 
 **Goals planned for next week:**
 - Help with creation of the backend (3 days)
 - Help with creation and feedback for the frontend rough draft (2 days)
+
 
 
