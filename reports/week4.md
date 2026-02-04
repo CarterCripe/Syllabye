@@ -31,16 +31,16 @@
 - Create rough draft for the frontend of the application (3 days)
 
 ### Carter Cripe:
-**Goals planned for this week:** Finalized project idea and plan
+**Goals planned for this week:** Quantify project architecture
 
-**Team progress and issues:**
-- **What team member did:**
+**Team progress and issues:** 
+- **What team member did:** 
 - **What worked:**
 - **What team member learned:**
 - **Where the team member had trouble and where the team member is stuck:**
 
 **Goals planned for next week:**
-- Start working on the backend portion of the application (3 days)
+- Create a function layout of the project backend containing input / output structure, as well as data processing plan
 
 ### Justin Primc:
 **Goals planned for this week:** Finalized project idea and plan
@@ -54,4 +54,5 @@
 **Goals planned for next week:**
 - Help with creation of the backend (3 days)
 - Help with creation and feedback for the frontend rough draft (2 days)
+
 
