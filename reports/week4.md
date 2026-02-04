@@ -19,16 +19,21 @@
 ## Contributions of Individual Team Members
 
 ### Brennan Duman:
-**Goals planned for this week:** Finalized project idea and plan
+**Goals planned for this week:**
+- Complete Milestone 1 by developing goals for minimum viable product, as well as potential stretch goals such as assignment notifications and 'importance' based assignment sorting.
+- Complete Milestone 2 by completing the 'Team Process Description'. Specify the software stack, a rough schedule for each team member, major risks that could lead to an uncompleted project, and when to seek external feedback.
 
 **Team progress and issues:**
-- **What team member did:** Spearheaded team effort to catch up on past milestones.
+- **What team member did:** Spearheaded team effort to catch up on past milestones during Thursday meeting. 
 - **What worked:** Being able to sit down with the group and effectively communicate the areas where effort was needed.
 - **What team member learned:** Learned how to better communicate with the rest of the team, as well as the various systems needed to update the customer (aka the teaching staff).
-- **Where the team member had trouble and where the team member is stuck:** In terms of the work done, it was fairly straight forward. Not currently stuck, but is unfamiliar with the chosen frontend framework and may require assistance in the future.
+- **Where the team member had trouble and where the team member is stuck:** In terms of the work done, it was fairly straight forward. Not currently stuck, but is unfamiliar with the React, and may require help from external developers and online sources to learn the framework. \[Edit - 2/4: Was unable to complete this report to a satisfactory condition. Will take additional time to write out granularity and be as specific as possible for reports moving forward.\]
 
 **Goals planned for next week:**
-- Create rough draft for the frontend of the application (3 days)
+- Create page layout for frontend (1 day)
+- Learn the basics of React (2 days)
+- Implement layout using React (2 days)
+    * This implementation will consist soley of navigation between pages. Styling and other content will not be applied, apart from a short text description describing the basic function each page will fulfill.
 
 ### Carter Cripe:
 **Goals planned for this week:** Quantify project architecture
@@ -54,6 +59,7 @@
 **Goals planned for next week:**
 - Help with creation of the backend (3 days)
 - Help with creation and feedback for the frontend rough draft (2 days)
+
 
 
 
