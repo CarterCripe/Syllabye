@@ -1,0 +1,27 @@
+# Ignore operating system generated files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts and temporary files
+/build
+/dist
+/temp
+*.log
+*.tmp
+
+# Ignore editor-specific files and directories
+.vscode/
+.idea/
+
+# Ignore package manager and dependency directories (adjust based on project language)
+# e.g., Node.js
+/node_modules
+
+# e.g., Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+#claude
+*.md
+/claude
