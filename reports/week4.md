@@ -14,7 +14,7 @@
 ### Goals planned for next week:
 - Complete any remaining milestones (#3) (1 day)
 - Start work on backend application (3 days)
-- Create rough draft of frontend concept (3 days)
+- Create rough draft of frontend page layout using React (3 days)
 
 ## Contributions of Individual Team Members
 
@@ -33,7 +33,7 @@
 - Create page layout for frontend (1 day)
 - Learn the basics of React (2 days)
 - Implement layout using React (2 days)
-    * This implementation will consist soley of navigation between pages. Styling and other content will not be applied, apart from a short text description describing the basic function each page will fulfill.
+    * This implementation will consist solely of navigation between pages. Styling and other content will not be applied, apart from a short text description describing the basic function each page will fulfill.
 
 ### Carter Cripe:
 **Goals planned for this week:** Quantify project architecture by determining frontend and backend software choices
@@ -57,10 +57,5 @@
 - **Where team member had trouble and where team member is stuck:** No real challenges other than getting the report formatting to match that which the professor requires.
 
 **Goals planned for next week:**
-- Help with creation of the backend (3 days)
-- Help with creation and feedback for the frontend rough draft (2 days)
-
-
-
-
-
+- Learn the basics of React (2 days)
+- Finish all Milestone 3 pieces (1 day)
