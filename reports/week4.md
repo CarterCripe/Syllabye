@@ -48,7 +48,7 @@
 - Create a function layout of the project backend containing input / output structure, as well as data processing plan
 
 ### Justin Primc:
-**Goals planned for this week:** Finalized project idea and plan
+**Goals planned for this week:** Complete Milestones 1 & 2
 
 **Team progress and issues:**
 - **What team member did:** Completed most of the group's weekly report and added the basic formatting for the reports moving into upcoming weeks. Helped update team sections of the shared document. Also worked on  completing the Requirements section of the document, which included a user story, three non-functional requirements, and the assigned external requirements.
@@ -59,3 +59,4 @@
 **Goals planned for next week:**
 - Learn the basics of React (2 days)
 - Finish all Milestone 3 pieces (1 day)
+
