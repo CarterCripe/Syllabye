@@ -8,9 +8,9 @@
 - 
 
 ### Team progress and issues:
-- **What the team did:** 
+- **What the team did:** Completed the rough layout of the frontend UI using Google Drawings. Got the working document caught up to the requirements given in Milestone 3.
 - **What worked:** We decided to switch from using the React Interface for the frontend UI to using a basic system of HTML, CSS, and JavaScript, which we are more familiar with.
-- **What team learned:** 
+- **What team learned:**
 - **Where the team had trouble and where the team is stuck:** 
 
 ### Goals planned for next week:
