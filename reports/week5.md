@@ -21,15 +21,26 @@
 
 ### Brennan Duman:
 **Goals planned for this week:**
+- Learn React Basics
+- Create frontend concept UI in Google Drawings
 
 **Team progress and issues:**
 - **What team member did:**
+    - Led discussion regarding the switch from React to a more classic HTML implementation for the frontend
+    - Drafted frontend layout, UI, colour scheme and flow in Google Drawings
+    - Worked on expanding statements in Week 4's report, due to feedback that it wasn't detailed or specific enough.
 - **What worked:**
-- **What team member learned:** 
+    - Created colour theming for the primary interface options that carry through the layout, allowing a user to immediately know their location in the system.
+- **What team member learned:**
+    - While developing extensions is very similar to developing webpages, Chromium does impose some restrictions (especially with manifest v3, which affects user data storage and transmission). This can cause issues with React, prompting the discussion to change the frontend framework to classic HTML/CSS/JavaScript.
+    - Since React is a JavaScript framework, a theoretical implementation would interact with the backend the same way a HTML/JS implementation would, meaning already created testing files and practices can be maintained.
 - **Where the team member had trouble and where the team member is stuck:**
+    - During research into learning React, discovered issue with React and manifest v3 that would introduce additional difficulty into development. This was resolved through team discussion and frontend framework change.
+    - Week 4's report was subpar. Considerable time this week was dedicated to increasing granularity and increasing the level of detail.
 
 **Goals planned for next week:**
-- 
+- Implement the drafted frontend in Google Drawings using HTML5/CSS/JavaScript.
+- Potentially begin API testing & integration with backend.
 
 ### Carter Cripe:
 **Goals planned for this week:**
