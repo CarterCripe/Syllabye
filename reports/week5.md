@@ -10,8 +10,8 @@
 ### Team progress and issues:
 - **What the team did:** Completed the rough layout of the frontend UI using Google Drawings. Got the working document caught up to the requirements given in Milestone 3.
 - **What worked:** We decided to switch from using the React Interface for the frontend UI to using a basic system of HTML, CSS, and JavaScript, which we are more familiar with.
-- **What team learned:**
-- **Where the team had trouble and where the team is stuck:** 
+- **What team learned:** Gained an understanding of the Chrome extension architecture and how the complexity of React would only make this project harder, so the simple use of HTML and CSS would accomplish the same task.
+- **Where the team had trouble and where the team is stuck:** The team chose to pivot from React to HTML and CSS. The team is also still working on finalizing the complete structure of the working living document.
 
 ### Goals planned for next week:
 - Implement the rough draft frontend layout, using HTML & CSS
@@ -58,10 +58,11 @@
 **Goals planned for this week:** Complete pieces of Milestone 3, risk assessment, and architectural assumptions.
 
 **Team progress and issues:**
-- **What team member did:**
-- **What worked:**
-- **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:**
+- **What team member did:** Completed the risk assessment section of Milestone 3, updated the living document and reports to reflect the shift from using the React interface to using basic HTML and CSS for the frontend. Reviewed Google Drawings UI layout created by Brennan.
+- **What worked:** Following the structured approach to complete Milestone 3 and switching to an already understood language and interface of HTML and CSS.
+- **What team member learned:** I gained a deeper understanding of the earlier level design process in applications/software.
+- **Where the team member had trouble and where the team member is stuck:** Ensuring that the risk assessment section covers all of the potential issues in the framework.
 
 **Goals planned for next week:**
 - Implement rough draft of the UI using HTML and CSS
+- Continue refining the living document based on previous milestones and any instructor feedback.
