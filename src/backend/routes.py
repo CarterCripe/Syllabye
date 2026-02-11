@@ -40,7 +40,7 @@ def process_syllabus():
         return 'error in the call'
 
 # Question Answering Route
-@api.route('/process', methods=['POST'])
+@api.route('/complex-question', methods=['POST'])
 def advanced_question():
     try:
         data = request.get_json()
