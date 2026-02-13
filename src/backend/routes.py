@@ -34,10 +34,12 @@ def process_syllabus():
         data = request.get_json()
         data = json.loads(data)
         processor = SyllabusProcessor(data)
-        return data
+        if not processor.is_real_syllabus():
+            return {'course_id': 'invalid'}
+        return processor.initialize_syllabus()
     except ValueError as e:
         print(e)
-        return 'error in the call'
+        return {'status': 'error'}
 
 # Question Answering Route
 @api.route('/complex-question', methods=['POST'])

@@ -15,6 +15,12 @@ class SyllabusProcessor:
         else:
             return self.data
 
+    def is_real_syllabus(self) -> bool:
+        if self.data is None:
+            return False
+        else:
+            return True
+
     def get_course_name(self):
         #     get course name
         return "Underwater Basket Weaving"
@@ -57,6 +63,7 @@ class SyllabusProcessor:
 
     def initialize_syllabus(self):
         json_syllabus = {
+            'status': 'valid',
             'course_id': self.get_course_id(),
             'course_name': self.get_course_name(),
             'course_dates': self.get_course_dates(),

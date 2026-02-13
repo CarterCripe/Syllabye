@@ -202,12 +202,12 @@ if __name__ == "__main__":
         claude_test_prompt,
         load_from_file=False
     )
-    gemin_agent = Agent.get_agent(
+    gemini_agent = Agent.get_agent(
         "gemini",
         gemini_test_prompt,
         load_from_file=False
     )
 
     response_claude = claude_agent.invoke("Write a poem about how claude is the best llm")
-    respones_gemini = gemin_agent.invoke("Write a poem about how gemini is the best llm")
-    print(f"Claude Poem: {response_claude}\n\nGemini Poem: {respones_gemini}")
+    responses_gemini = gemini_agent.invoke("Write a poem about how gemini is the best llm")
+    print(f"Claude Poem: {response_claude}\n\nGemini Poem: {responses_gemini}")
