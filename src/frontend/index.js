@@ -47,6 +47,8 @@ function switchScreen(origin, dest){
  * -------------------------
  */
 
+// Home Screen
+
 let btnAddSyllabus = document.getElementById("btnAddSyllabus");
 btnAddSyllabus.addEventListener("click", function(){
     switchScreen("home", "add");
@@ -65,4 +67,26 @@ btnQuickInfo.addEventListener("click", function(){
 let btnSearch = document.getElementById("btnSearch");
 btnSearch.addEventListener("click", function(){
     switchScreen("home", "search");
+});
+
+// Back (to home)
+
+let btnAddSylBack = document.getElementById("btnAddSylBack");
+btnAddSylBack.addEventListener("click", function(){
+    switchScreen("add", "home");
+});
+
+let btnSeeSylBack = document.getElementById("btnSeeSylBack");
+btnSeeSylBack.addEventListener("click", function(){
+    switchScreen("raw", "home");
+});
+
+let btnQuickInfoBack = document.getElementById("btnQuickInfoBack");
+btnQuickInfoBack.addEventListener("click", function(){
+    switchScreen("quick", "home");
+});
+
+let btnSearchBack = document.getElementById("btnSearchBack");
+btnSearchBack.addEventListener("click", function(){
+    switchScreen("search", "home");
 });
