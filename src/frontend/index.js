@@ -15,8 +15,12 @@ function getScreenObj(screenName){
 }
 
 function switchScreen(origin, dest){
-  let originScreen;
-  let destScreen;
+  let originScreen = getScreenObj(origin);
+  let destScreen = getScreenObj(dest);
+
+  if(originScreen === destScreen){
+    console.log("Error: Origin & Destination screens are the same.");
+  }
 
   
 }
