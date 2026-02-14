@@ -23,6 +23,7 @@ function getScreenObj(screenName){
 
 /*
  * switch the visible screen
+ * 
  * Params:
  *   origin {str} - the currently visible screen
  *   dest {str} - the string to switch to
@@ -39,3 +40,14 @@ function switchScreen(origin, dest){
   originScreen.classList.add("hidden");
   destScreen.classList.remove("hidden"); 
 }
+
+/*
+ * -------------------------
+ * Button Listen Events
+ * -------------------------
+ */
+
+let btnAddSyllabus = document.getElementById("btnAddSyllabus");
+btnAddSyllabus.addEventListener("click", function(){
+    switchScreen("home", "add");
+});
