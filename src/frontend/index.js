@@ -51,3 +51,18 @@ let btnAddSyllabus = document.getElementById("btnAddSyllabus");
 btnAddSyllabus.addEventListener("click", function(){
     switchScreen("home", "add");
 });
+
+let btnSeeSyllabus = document.getElementById("btnSeeSyllabus");
+btnSeeSyllabus.addEventListener("click", function(){
+    switchScreen("home", "raw");
+});
+
+let btnQuickInfo = document.getElementById("btnQuickInfo");
+btnQuickInfo.addEventListener("click", function(){
+    switchScreen("home", "quick");
+});
+
+let btnSearch = document.getElementById("btnSearch");
+btnSearch.addEventListener("click", function(){
+    switchScreen("home", "search");
+});
