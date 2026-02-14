@@ -20,7 +20,9 @@ function switchScreen(origin, dest){
 
   if(originScreen === destScreen){
     console.log("Error: Origin & Destination screens are the same.");
+    return;
   }
 
-  
+  originScreen.classList.add("hidden");
+  destScreen.classList.remove("hidden"); 
 }
