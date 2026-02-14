@@ -1,3 +1,5 @@
+import json
+
 from flask import Blueprint, request, jsonify
 from processor import SyllabusProcessor
 
@@ -8,7 +10,7 @@ def health_check():
     return jsonify({'status': 'ok'})
 
 @api.route('/syllabus', methods=['POST'])
-def handle_syllabus():
+def test_syllabus():
     try:
         data = request.get_json()
         processor = SyllabusProcessor(data)
@@ -19,5 +21,33 @@ def handle_syllabus():
     print("Returning result?")
     return result
 
+
+
 def register_routes(app):
     app.register_blueprint(api)
+
+
+# Main Processing Route
+@api.route('/process', methods=['POST'])
+def process_syllabus():
+    try:
+        data = request.get_json()
+        data = json.loads(data)
+        processor = SyllabusProcessor(data)
+        if not processor.is_real_syllabus():
+            return {'course_id': 'invalid'}
+        return processor.initialize_syllabus()
+    except ValueError as e:
+        print(e)
+        return {'status': 'error'}
+
+# Question Answering Route
+@api.route('/complex-question', methods=['POST'])
+def advanced_question():
+    try:
+        data = request.get_json()
+        return data
+    except ValueError as e:
+        print(e)
+        return 'error in the call'
+
