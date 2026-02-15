@@ -21,6 +21,10 @@ button.searchBtn{
     background-color: #ff5d5dff;
 }
 
+button.backBtn{
+    background-color: #ff5d5dff;
+}
+
 input.searchInput{
     min-width: 14em;
     background-color: #efefefff;
