@@ -30,6 +30,7 @@ input.searchInput{
     min-width: 14em;
     background-color: #efefefff;
     height: 3em;
+    padding-left: .5em;
 }
 
 input{
