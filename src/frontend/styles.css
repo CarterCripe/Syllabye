@@ -14,5 +14,9 @@ button{
 }
 
 button.searchBtn{
-    min-width: unset;
+    min-width: 5em;
+}
+
+input.searchInput{
+    min-width: 14em;
 }
