@@ -1,3 +1,7 @@
-.hidden{
+.screen.hidden{
     display: none;
+}
+
+.screen{
+    display: flex;
 }
