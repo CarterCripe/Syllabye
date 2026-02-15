@@ -17,13 +17,29 @@ button{
     height: 3em;
 }
 
+button:hover{
+    border-width: 1px;
+}
+
 button.searchBtn{
     min-width: 5em;
     background-color: #ff5d5dff;
 }
 
+button.searchBtn:hover{
+    background-color: white;
+    color: #ff5d5dff;
+    border-color: #ff5d5dff;
+}
+
 button.backBtn{
     background-color: #ff5d5dff;
+}
+
+button.backBtn:hover{
+    color: #ff5d5dff;
+    border-color: #ff5d5dff;
+    background-color: white;
 }
 
 input.searchInput{
@@ -42,10 +58,28 @@ input{
     background-color: #ff7e00ff;
 }
 
+#btnAddSyllabus:hover{
+    color: #ff7e00ff;
+    border-color: #ff7e00ff;
+    background-color: white;
+}
+
 #btnSeeSyllabus{
     background-color: #4a86e8ff;
 }
 
+#btnSeeSyllabus:hover{
+    color: #4a86e8ff;
+    border-color: #4a86e8ff;
+    background-color: white;
+}
+
 #btnQuickInfo{
     background-color: #28c928ff;
+}
+
+#btnQuickInfo:hover{
+    color: #28c928ff;
+    border-color: #28c928ff;
+    background-color: white;
 }
