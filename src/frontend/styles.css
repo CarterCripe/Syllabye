@@ -14,6 +14,7 @@ button{
     border-radius: 100px;
     border-width: 0px;
     color: white;
+    height: 3em;
 }
 
 button.searchBtn{
@@ -28,6 +29,7 @@ button.backBtn{
 input.searchInput{
     min-width: 14em;
     background-color: #efefefff;
+    height: 3em;
 }
 
 input{
