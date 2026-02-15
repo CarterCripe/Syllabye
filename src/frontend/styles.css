@@ -13,17 +13,32 @@ button{
     min-width: 20em;
     border-radius: 100px;
     border-width: 0px;
+    color: white;
 }
 
 button.searchBtn{
     min-width: 5em;
+    background-color: #ff5d5dff;
 }
 
 input.searchInput{
     min-width: 14em;
+    background-color: #efefefff;
 }
 
 input{
     border-radius: 100px;
     border-width: 0px;
+}
+
+#btnAddSyllabus{
+    background-color: #ff7e00ff;
+}
+
+#btnSeeSyllabus{
+    background-color: #4a86e8ff;
+}
+
+#btnQuickInfo{
+    background-color: #28c928ff;
 }
