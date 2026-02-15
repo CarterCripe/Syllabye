@@ -42,18 +42,6 @@ button.backBtn:hover{
     background-color: white;
 }
 
-input.searchInput{
-    min-width: 14em;
-    background-color: #efefefff;
-    height: 3em;
-    padding-left: .5em;
-}
-
-input{
-    border-radius: 100px;
-    border-width: 0px;
-}
-
 #btnAddSyllabus{
     background-color: #ff7e00ff;
 }
@@ -82,4 +70,16 @@ input{
     color: #28c928ff;
     border-color: #28c928ff;
     background-color: white;
+}
+
+input.searchInput{
+    min-width: 14em;
+    background-color: #efefefff;
+    height: 3em;
+    padding-left: .5em;
+}
+
+input{
+    border-radius: 100px;
+    border-width: 0px;
 }
