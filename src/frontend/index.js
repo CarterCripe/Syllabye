@@ -3,7 +3,7 @@
  * 
  * Param: screenName {str} - the name of the screen
  * 
- * Return {DOM - screen div} - the corresponding screen
+ * Return {DOM obj - screen div} - the corresponding screen
  */
 function getScreenObj(screenName){
   let screen;
