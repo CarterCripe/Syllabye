@@ -51,42 +51,42 @@ function switchScreen(origin, dest){
 
 let btnAddSyllabus = document.getElementById("btnAddSyllabus");
 btnAddSyllabus.addEventListener("click", function(){
-    switchScreen("home", "add");
+  switchScreen("home", "add");
 });
 
 let btnSeeSyllabus = document.getElementById("btnSeeSyllabus");
 btnSeeSyllabus.addEventListener("click", function(){
-    switchScreen("home", "raw");
+  switchScreen("home", "raw");
 });
 
 let btnQuickInfo = document.getElementById("btnQuickInfo");
 btnQuickInfo.addEventListener("click", function(){
-    switchScreen("home", "quick");
+  switchScreen("home", "quick");
 });
 
 let btnSearch = document.getElementById("btnSearch");
 btnSearch.addEventListener("click", function(){
-    switchScreen("home", "search");
+  switchScreen("home", "search");
 });
 
 // Back (to home)
 
 let btnAddSylBack = document.getElementById("btnAddSylBack");
 btnAddSylBack.addEventListener("click", function(){
-    switchScreen("add", "home");
+  switchScreen("add", "home");
 });
 
 let btnSeeSylBack = document.getElementById("btnSeeSylBack");
 btnSeeSylBack.addEventListener("click", function(){
-    switchScreen("raw", "home");
+  switchScreen("raw", "home");
 });
 
 let btnQuickInfoBack = document.getElementById("btnQuickInfoBack");
 btnQuickInfoBack.addEventListener("click", function(){
-    switchScreen("quick", "home");
+  switchScreen("quick", "home");
 });
 
 let btnSearchBack = document.getElementById("btnSearchBack");
 btnSearchBack.addEventListener("click", function(){
-    switchScreen("search", "home");
+  switchScreen("search", "home");
 });
