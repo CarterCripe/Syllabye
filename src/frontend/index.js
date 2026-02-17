@@ -47,7 +47,7 @@ function switchScreen(origin, dest){
  * -------------------------
  */
 
-// Home Screen
+// Home Screen Screen Switching
 
 let btnAddSyllabus = document.getElementById("btnAddSyllabus");
 btnAddSyllabus.addEventListener("click", function(){
@@ -69,7 +69,7 @@ btnSearch.addEventListener("click", function(){
   switchScreen("home", "search");
 });
 
-// Back (to home)
+// Back (to home) screen switching
 
 let btnAddSylBack = document.getElementById("btnAddSylBack");
 btnAddSylBack.addEventListener("click", function(){
