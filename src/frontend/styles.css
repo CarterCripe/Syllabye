@@ -42,11 +42,11 @@ button.backBtn:hover{
     background-color: white;
 }
 
-#btnAddSyllabus{
+button.btnAddSyllabus{
     background-color: #ff7e00ff;
 }
 
-#btnAddSyllabus:hover{
+button.btnAddSyllabus:hover{
     color: #ff7e00ff;
     border-color: #ff7e00ff;
     background-color: white;
