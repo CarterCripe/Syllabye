@@ -62,13 +62,29 @@ function extractFilename(path) {
 function processFile(filePath){
   let fileName = extractFilename(filePath);
 
-  
+  inputObj = document.getElementById("fileInput");
+  const file = inputObj.files[0];
+  if(!file){
+    console.log("Error! The no file found.");
+    return "Err~|~";
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function (event){
+    const text = event.target.result;
+    console.log(text);
+  };
+
+  reader.readAsText(file); 
 }
 
 function addSyllabus(){
   //TODO: see what kind of data has been inputted (.pdf, .txt, raw text), and
   //  process accordingly
-
+  let inputObj = document.getElementById("fileInput");
+  let filePath = inputObj.value;
+  processFile(filePath);
 
 }
 
@@ -79,7 +95,10 @@ function addSyllabus(){
  */
 
 // Add Syllabus
-
+let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+btnProcessSyllabus.addEventListener("click", function(){
+  addSyllabus();
+})
 
 
 // Home Screen Screen Switching Buttons
