@@ -72,11 +72,11 @@ function processFile(filePath){
   const reader = new FileReader();
 
   reader.onload = function (event){
-    const text = event.target.result;
-    console.log(text);
+    //const text = event.target.result;
+    //console.log(text);
   };
 
-  reader.readAsText(file); 
+  //reader.readAsText(file); 
 }
 
 function addSyllabus(){
