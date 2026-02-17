@@ -43,11 +43,14 @@ function switchScreen(origin, dest){
 
 /*
  * -------------------------
- * Button Listen Events
+ * Listen Events
  * -------------------------
  */
 
-// Home Screen Screen Switching
+// 
+
+
+// Home Screen Screen Switching Buttons
 
 let btnAddSyllabus = document.getElementById("btnAddSyllabus");
 btnAddSyllabus.addEventListener("click", function(){
@@ -69,7 +72,7 @@ btnSearch.addEventListener("click", function(){
   switchScreen("home", "search");
 });
 
-// Back (to home) screen switching
+// Back (to home) screen switching buttons
 
 let btnAddSylBack = document.getElementById("btnAddSylBack");
 btnAddSylBack.addEventListener("click", function(){
