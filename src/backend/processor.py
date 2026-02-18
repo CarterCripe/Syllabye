@@ -6,6 +6,11 @@ class SyllabusProcessor:
     # init class
     def __init__(self, data):
         self.data = data
+        self.status = 'valid'
+        self.course_id = 'invalid'
+        self.course_name = 'invalid'
+        self.instructor = 'invalid'
+        self.course_name = 'invalid'
         pass
 
     # temporary function
@@ -35,6 +40,7 @@ class SyllabusProcessor:
     def get_course_instructor(self):
         #     get course id
         return "Gandalf the Grey"
+    def get_base_info
 
     def get_processing_date(self):
         #     get course id
@@ -62,18 +68,23 @@ class SyllabusProcessor:
         return sections
 
     def initialize_syllabus(self):
-        json_syllabus = {
-            'status': 'valid',
-            'course_id': self.get_course_id(),
-            'course_name': self.get_course_name(),
-            'course_dates': self.get_course_dates(),
-            'instructor': self.get_course_instructor(),
-            'processing_date': self.get_processing_date(),
-            'raw_text': self.data,
-            'sections': self.generate_syllabus_sections()
-        }
+        try:
+            json_syllabus = {
+                'status': self.status,
+                'course_id': self.get_course_id(),
+                'course_name': self.get_course_name(),
+                'course_dates': self.get_course_dates(),
+                'instructor': self.get_course_instructor(),
+                'processing_date': self.get_processing_date(),
+                'raw_text': self.data,
+                'sections': self.generate_syllabus_sections()
+            }
+        except ValueError as e:
+            print(f"Error in initialization: {e}")
+            return {'status': 'error'}
+        json_syllabus.status = 'valid'
         print(json.dumps(json_syllabus, indent=4))
-        return self.test_process()
+        return json_syllabus
 
 
 test_data = {
