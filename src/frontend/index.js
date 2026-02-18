@@ -49,7 +49,6 @@ function switchScreen(origin, dest){
  * Return {str}: the raw text from the pdf
  */
 async function processPDF(file){
-  console.log(typeof(file));
   //call the library and process the file
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
@@ -70,6 +69,17 @@ async function processPDF(file){
 }
 
 /*
+ * record error when adding syllabus to console and display on process btn
+ *
+ * Param: errorMessage {str} - the error message to log in console & dispaly to user
+ */
+function addSyllabusError(errorMessage){
+  console.log(errorMessage);
+  let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+  btnProcessSyllabus.textContent = errorMessage;
+}
+
+/*
  * processes the file input into raw text if needed, and send to backend
  */
 async function addSyllabus(){
@@ -77,8 +87,7 @@ async function addSyllabus(){
   const file = inputObj.files[0];
   
   if(!file){
-    console.log("Error! The no file found.");
-    
+    addSyllabusError("Error! No file found.");
   }
   let text;
 
@@ -89,10 +98,14 @@ async function addSyllabus(){
   }else if(file.type == "text/plain"){
     text = await file.text();
   }else{
-    text = "Err: No content";
+    addSyllabusError("Error! No valid file selected!");
   }
   
-  console.log(text);
+  if(text){
+    console.log(text);
+  }else{
+    addSyllabusError("Error! No file content found!");
+  }
 }
 
 /*
