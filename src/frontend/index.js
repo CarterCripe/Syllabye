@@ -109,6 +109,23 @@ async function addSyllabus(){
 }
 
 /*
+ * displays the chosen file & entered course on the process/"Add Syllabus" btn
+ *
+ * Param: fileInput {DOM obj - file input}
+ */
+function displayChosenFile(fileInput){
+  //substring is reqd because file paths are obscured behind "C:\fakepath\"
+  let fileName = fileInput.value.substring(12, fileInput.value.length);
+  
+  let courseName = document.getElementById("courseInput").value;
+
+  let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+
+  //"Add CS 362: syllabus.pdf"
+  btnProcessSyllabus.textContent = "Add " + courseName + ": " + fileName;
+}
+
+/*
  * -------------------------
  * Listen Events
  * -------------------------
@@ -120,6 +137,11 @@ btnProcessSyllabus.addEventListener("click", function(){
   addSyllabus();
 })
 
+// File has been changed
+let fileInput = document.getElementById("fileInput");
+fileInput.addEventListener("change", function(){
+  displayChosenFile(this);
+});
 
 // Home Screen Screen Switching Buttons
 
