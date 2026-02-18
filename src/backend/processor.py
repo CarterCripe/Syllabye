@@ -14,7 +14,7 @@ class SyllabusProcessor:
         self.course_name = 'invalid'
         self.instructor = 'invalid'
         self.course_dates = 'invalid'
-        self.prompt_dir = BASE_DIR / 'src' / 'backend' / 'agents' / 'agent_prompts'
+        self.prompt_dir = BASE_DIR / 'agents' / 'agent_prompts'
         pass
 
     # temporary function
@@ -46,8 +46,7 @@ class SyllabusProcessor:
         return "Gandalf the Grey"
     def set_base_info(self):
         try:
-            prompt_path = self.prompt_dir / 'getBaseInfo.toml'
-            agent: Agent = Agent.get_agent('claude', "", True, str(prompt_path))
+            agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(self.data)
             print(f"DEBUGGING: raw_base_info: {raw_base_info}")
             items = raw_base_info.split(',')
