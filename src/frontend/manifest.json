@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Syllabye",
+    "version": "1.0.0",
+    "description": "Say goodbye to syllabi",
+    "permissions": ["storage"],
+    "action": {
+        "default_popup": "index.html"
+    }
+}
