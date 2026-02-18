@@ -3,6 +3,7 @@ import json
 import os
 from agents.agent import Agent
 from pathlib import Path
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -49,11 +50,20 @@ class SyllabusProcessor:
     def set_base_info(self):
         key = os.getenv("ANTHROPIC_API_KEY")
         if not key:
-            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment!")
-            return
+            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retrying load...")
+            start_path = Path(__file__).resolve().parent
+            for path in [start_path] + list(start_path.parents):
+                env_file = path / '.env'
+                if env_file.exists():
+                    load_dotenv(env_file)
+                    key = os.getenv("ANTHROPIC_API_KEY")
+                    if not key:
+                        print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
+
+
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
-            raw_base_info = agent.invoke(self.data)
+            raw_base_info = agent.invoke(str(self.data))
             print(f"DEBUGGING: raw_base_info: {raw_base_info}")
             items = raw_base_info.split(',')
             self.course_name = items[1]
@@ -113,8 +123,8 @@ class SyllabusProcessor:
         return json_syllabus
 
 
-# test_data = {
-#     'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
-# }
-# process = SyllabusProcessor(test_data)
-# process.initialize_syllabus()
+test_data = {
+    'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
+}
+process = SyllabusProcessor(test_data)
+process.initialize_syllabus()
