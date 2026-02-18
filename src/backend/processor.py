@@ -1,9 +1,11 @@
 import datetime
 import json
+import os
 from agents.agent import Agent
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
+
 
 class SyllabusProcessor:
     # init class
@@ -45,6 +47,10 @@ class SyllabusProcessor:
         #     get course id
         return "Gandalf the Grey"
     def set_base_info(self):
+        key = os.getenv("ANTHROPIC_API_KEY")
+        if not key:
+            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment!")
+            return
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(self.data)
@@ -107,8 +113,8 @@ class SyllabusProcessor:
         return json_syllabus
 
 
-test_data = {
-    'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
-}
-process = SyllabusProcessor(test_data)
-process.initialize_syllabus()
+# test_data = {
+#     'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
+# }
+# process = SyllabusProcessor(test_data)
+# process.initialize_syllabus()
