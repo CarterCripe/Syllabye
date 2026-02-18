@@ -44,20 +44,14 @@ function switchScreen(origin, dest){
 /*
  * process a .pdf file into raw text using the PDF.js library
  *
- * Param: inputObj {DOM obj - file input}: the input obj for the file
+ * Param: file {file obj}: the file from the input
  * 
  * Return {str}:
  *   "Err~|~" - an error occured.
  *   Anything else - the raw text from the pdf
  */
-async function processPDF(inputObj){
-  const file = inputObj.files[0];
-
-  if(!file){
-    console.log("Error! The no file found.");
-    return "Err~|~";
-  }
-
+async function processPDF(file){
+  console.log(typeof(file));
   //call the library and process the file
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
@@ -83,9 +77,16 @@ async function processPDF(inputObj){
 async function addSyllabus(){
   //TODO: see what kind of data has been inputted (.pdf, .txt, raw text), and
   //  process accordingly
-  let inputObj = document.getElementById("fileInput");
+  const inputObj = document.getElementById("fileInput");
+  const file = inputObj.files[0];
+  
+  if(!file){
+    console.log("Error! The no file found.");
+    //return "Err~|~";
+  }
   let text;
-  text = await processPDF(inputObj);
+
+  text = await processPDF(file);
   console.log(text);
 }
 
