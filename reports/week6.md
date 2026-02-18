@@ -76,6 +76,7 @@
 **Goals planned for next week:**
     - Finish implimentation the main processing unit for syllabus implimentation
     - Create implimentation plan the secondary complex-question answering system
+    - Begin implimentation for automated testing of the backend
     
 
 ### Justin Primc:
