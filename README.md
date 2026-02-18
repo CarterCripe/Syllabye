@@ -12,11 +12,12 @@ Syllabye is a browser extension that helps students easily access and search the
 ## Repository Layout
 ```
 syllabye/
-├── src/       # Source code for browser extension
-├── public/    # Static assets and extension manifest
-├── tests/     # Test files
-├── reports/   # Weekly progress reports
-└── README.md  # This file
+├── src/         # Source code for browser extension
+├── public/      # Static assets and extension manifest
+├── tests/       # Test files
+├── reports/     # Weekly progress reports
+├── Syllabye.md  # Working document
+└── README.md    # This file
 ```
 
 **Course**: CS 362 - Software Engineering II (Winter 2026)
