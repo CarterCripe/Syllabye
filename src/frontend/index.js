@@ -59,24 +59,31 @@ function extractFilename(path) {
   return path; // just the filename
 }
 
-function processFile(filePath){
-  let fileName = extractFilename(filePath);
+async function processFile(filePath){
+  //let fileName = extractFilename(filePath);
 
   inputObj = document.getElementById("fileInput");
   const file = inputObj.files[0];
+
   if(!file){
     console.log("Error! The no file found.");
     return "Err~|~";
   }
 
-  const reader = new FileReader();
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
 
-  reader.onload = function (event){
-    //const text = event.target.result;
-    //console.log(text);
-  };
+  let fullText = "";
 
-  //reader.readAsText(file); 
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+
+    const strings = content.items.map(item => item.str);
+    fullText += strings.join(" ") + "\n\n";
+  }
+
+  console.log(fullText);
 }
 
 function addSyllabus(){
