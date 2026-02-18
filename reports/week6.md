@@ -18,6 +18,7 @@
 - Complete any implementation and documentation level requirements for milestone 4
 - Finish backend syllabus initialization process
 - Add complex question answering route to backend API and create processing plan
+- Begin implimenting an automated testing system for the backend
 
 ## Contributions of Individual Team Members
 
