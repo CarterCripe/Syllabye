@@ -1,0 +1,100 @@
+.screen.hidden{
+    display: none;
+}
+
+.screen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+button{
+    margin-top: 3em;
+    min-width: 20em;
+    border-radius: 100px;
+    border-width: 0px;
+    color: white;
+    height: 3em;
+}
+
+button:hover{
+    border-width: 1px;
+}
+
+button.searchBtn{
+    min-width: 5em;
+    background-color: #ff5d5dff;
+}
+
+button.searchBtn:hover{
+    background-color: white;
+    color: #ff5d5dff;
+    border-color: #ff5d5dff;
+}
+
+button.backBtn{
+    background-color: #ff5d5dff;
+}
+
+button.backBtn:hover{
+    color: #ff5d5dff;
+    border-color: #ff5d5dff;
+    background-color: white;
+}
+
+button.btnAddSyllabus{
+    background-color: #ff7e00ff;
+}
+
+button.btnAddSyllabus:hover{
+    color: #ff7e00ff;
+    border-color: #ff7e00ff;
+    background-color: white;
+}
+
+#btnSeeSyllabus{
+    background-color: #4a86e8ff;
+}
+
+#btnSeeSyllabus:hover{
+    color: #4a86e8ff;
+    border-color: #4a86e8ff;
+    background-color: white;
+}
+
+#btnQuickInfo{
+    background-color: #28c928ff;
+}
+
+#btnQuickInfo:hover{
+    color: #28c928ff;
+    border-color: #28c928ff;
+    background-color: white;
+}
+
+input.searchInput{
+    min-width: 14em;
+    background-color: #efefefff;
+    height: 3em;
+    padding-left: .5em;
+}
+
+input.fileInput{
+    display: none;
+}
+
+input{
+    border-radius: 100px;
+    border-width: 0px;
+}
+
+label.fileInputLabel{
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+label{
+    margin-top: 3em;
+}

@@ -2,12 +2,66 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
     <title>frontend</title>
+    <!--Primary script file is defined at bottom of body-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!--home-->
+    <div id="scrHome" class="screen">
+      <button id="btnAddSyllabus" class="btnAddSyllabus">Add Syllabus</button>
+      <button id="btnSeeSyllabus">See Syllabus</button>
+      <button id="btnQuickInfo">Quick Info</button>
+      <div class="searchContainer">
+        <input type="text" class="searchInput">
+        <button id="btnSearch" class="searchBtn">Search</button>
+      </div>
+      
+    </div>
+
+    <!--add syllabus-->
+    <div id="scrAddSyl" class="screen hidden">
+      <button id="btnAddSylBack" class="backBtn">Back</button>
+      <label>Course Name</label>
+      <input id="courseInput" type="text" class="searchInput">
+      <label class="fileInputLabel">
+        <input id="fileInput" type="file" accept=".pdf,.txt" class="fileInput">
+        Click to select .pdf or .txt
+      </label>
+      <button id="btnProcessSyllabus" class="btnAddSyllabus">Add Syllabus</button>
+      
+    </div>
+
+    <!--see syllabus-->
+    <div id="scrSeeSyl" class="screen hidden">
+      <button id="btnSeeSylBack" class="backBtn">Back</button>
+      <label>Select Course</label>
+      <select></select>
+      <div></div>
+    </div>
+
+    <!--quick info-->
+    <div id="scrQuickInfo" class="screen hidden">
+      <button id="btnQuickInfoBack" class="backBtn">Back</button>
+      <label>Select Course</label>
+      <select></select>
+      <label>Select Topic</label>
+      <select></select>
+      <div></div>
+    </div>
+
+    <!--search results-->
+    <div id="scrSearchResults" class="screen hidden">
+      <button id="btnSearchBack" class="backBtn">Back</button>
+      <div class="searchContainer">
+        <input type="text" class="searchInput">
+        <button class="searchBtn">Search</button>
+      </div>
+      
+      <div></div>
+    </div>
+
+    <script src="index.js"></script>
   </body>
 </html>
