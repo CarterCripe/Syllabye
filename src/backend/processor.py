@@ -1,6 +1,6 @@
 import datetime
 import json
-
+from agents.agent import Agent
 
 class SyllabusProcessor:
     # init class
@@ -10,7 +10,7 @@ class SyllabusProcessor:
         self.course_id = 'invalid'
         self.course_name = 'invalid'
         self.instructor = 'invalid'
-        self.course_name = 'invalid'
+        self.course_dates = 'invalid'
         pass
 
     # temporary function
@@ -40,7 +40,22 @@ class SyllabusProcessor:
     def get_course_instructor(self):
         #     get course id
         return "Gandalf the Grey"
-    def get_base_info
+    def set_base_info(self):
+        try:
+            agent: Agent = Agent.get_agent('claude', "", True, 'agents/agent_prompts/getBaseInfo.toml')
+            raw_base_info = agent.invoke(self.data)
+            print(f"DEBUGGING: raw_base_info: {raw_base_info}")
+            items = raw_base_info.split(',')
+            self.course_name = items[1]
+            self.course_id = items[0]
+            self.instructor = items[2]
+            self.course_dates = items[3]
+
+        except Exception as e:
+            print(f"Error during base information retrieval: {e}")
+            self.status = 'error'
+            return None
+        return None
 
     def get_processing_date(self):
         #     get course id
@@ -69,12 +84,13 @@ class SyllabusProcessor:
 
     def initialize_syllabus(self):
         try:
+            self.set_base_info()
             json_syllabus = {
                 'status': self.status,
-                'course_id': self.get_course_id(),
-                'course_name': self.get_course_name(),
-                'course_dates': self.get_course_dates(),
-                'instructor': self.get_course_instructor(),
+                'course_id': self.course_id,
+                'course_name': self.course_name,
+                'course_dates': self.course_dates,
+                'instructor': self.instructor,
                 'processing_date': self.get_processing_date(),
                 'raw_text': self.data,
                 'sections': self.generate_syllabus_sections()
@@ -82,7 +98,7 @@ class SyllabusProcessor:
         except ValueError as e:
             print(f"Error in initialization: {e}")
             return {'status': 'error'}
-        json_syllabus.status = 'valid'
+        json_syllabus["status"] = 'valid'
         print(json.dumps(json_syllabus, indent=4))
         return json_syllabus
 
