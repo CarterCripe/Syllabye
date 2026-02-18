@@ -41,6 +41,15 @@ function switchScreen(origin, dest){
   destScreen.classList.remove("hidden"); 
 }
 
+/*
+ * process a .pdf file into raw text using the PDF.js library
+ *
+ * Param: inputObj {DOM obj - file input}: the input obj for the file
+ * 
+ * Return {str}:
+ *   "Err~|~" - an error occured.
+ *   Anything else - the raw text from the pdf
+ */
 async function processPDF(inputObj){
   const file = inputObj.files[0];
 
@@ -49,11 +58,13 @@ async function processPDF(inputObj){
     return "Err~|~";
   }
 
+  //call the library and process the file
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
 
   let fullText = "";
 
+  //concat the text from each page together into a single string
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
     const content = await page.getTextContent();
@@ -66,6 +77,9 @@ async function processPDF(inputObj){
   return fullText;
 }
 
+/*
+ * processes the file input into raw text if needed, and send to backend
+ */
 async function addSyllabus(){
   //TODO: see what kind of data has been inputted (.pdf, .txt, raw text), and
   //  process accordingly
