@@ -41,8 +41,7 @@ function switchScreen(origin, dest){
   destScreen.classList.remove("hidden"); 
 }
 
-async function processFile(){
-  inputObj = document.getElementById("fileInput");
+async function processPDF(inputObj){
   const file = inputObj.files[0];
 
   if(!file){
@@ -61,18 +60,19 @@ async function processFile(){
 
     const strings = content.items.map(item => item.str);
     fullText += strings.join(" ") + "\n\n";
+
   }
 
-  console.log(fullText);
+  return fullText;
 }
 
-function addSyllabus(){
+async function addSyllabus(){
   //TODO: see what kind of data has been inputted (.pdf, .txt, raw text), and
   //  process accordingly
   let inputObj = document.getElementById("fileInput");
-  let filePath = inputObj.value;
-  processFile(filePath);
-
+  let text;
+  text = await processPDF(inputObj);
+  console.log(text);
 }
 
 /*
