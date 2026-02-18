@@ -46,9 +46,7 @@ function switchScreen(origin, dest){
  *
  * Param: file {file obj}: the file from the input
  * 
- * Return {str}:
- *   "Err~|~" - an error occured.
- *   Anything else - the raw text from the pdf
+ * Return {str}: the raw text from the pdf
  */
 async function processPDF(file){
   console.log(typeof(file));
@@ -75,18 +73,25 @@ async function processPDF(file){
  * processes the file input into raw text if needed, and send to backend
  */
 async function addSyllabus(){
-  //TODO: see what kind of data has been inputted (.pdf, .txt, raw text), and
-  //  process accordingly
   const inputObj = document.getElementById("fileInput");
   const file = inputObj.files[0];
   
   if(!file){
     console.log("Error! The no file found.");
-    //return "Err~|~";
+    
   }
   let text;
 
-  text = await processPDF(file);
+  //if the file is a pdf
+  if(file.type == "application/pdf"){
+    text = await processPDF(file);
+  //if the file is a txt
+  }else if(file.type == "text/plain"){
+    text = await file.text();
+  }else{
+    text = "Err: No content";
+  }
+  
   console.log(text);
 }
 
