@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               script-src 'self' https://cdnjs.cloudflare.com; 
+               connect-src http://localhost:6767;">
     <link rel="stylesheet" href="styles.css">
     <title>frontend</title>
     <!--Primary script file is defined at bottom of body-->
@@ -61,6 +65,11 @@
       
       <div></div>
     </div>
+
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    </script>
 
     <script src="index.js"></script>
   </body>
