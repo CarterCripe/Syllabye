@@ -61,8 +61,8 @@ class SyllabusProcessor:
                     if not key:
                         if is_debug():
                             print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
-
-
+                    else:
+                        print("RELOAD SUCCESSFUL: Proceeding")
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
@@ -130,8 +130,10 @@ class SyllabusProcessor:
 
 if __name__ == '__main__':
     os.environ['DEBUG_FLAG'] = str('True')
-    test_data = {
+    test_string = {
         'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
     }
-    process = SyllabusProcessor(test_data)
+    with open('test_syllabi/softengr2.txt', 'r') as f:
+        test_syllabus = f.read()
+    process = SyllabusProcessor(test_syllabus)
     process.initialize_syllabus()
