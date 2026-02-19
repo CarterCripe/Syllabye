@@ -44,6 +44,12 @@ pytest
 ```
 Test files go in `src/backend/tests/` named `test_<module>.py`.
 
+Testing the quality of API responses will use a custom grading analysis program to ensure maximum quality.
+This grading will be activated by running the program with the -test flag, and further debugging information can be seen by using the -d flag.
+```
+cd src/backend
+python app.py -d -test
+```
 ---
 
 ## Branching
