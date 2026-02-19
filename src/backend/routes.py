@@ -1,5 +1,5 @@
 import json
-
+from debug_config import is_debug
 from flask import Blueprint, request, jsonify
 from processor import SyllabusProcessor
 
@@ -15,10 +15,12 @@ def test_syllabus():
         data = request.get_json()
         processor = SyllabusProcessor(data)
     except ValueError as e:
-        print(e)
+        if is_debug():
+            print(e)
         return 'error in the call'
     result = processor.test_process()
-    print("Returning result?")
+    if is_debug():
+        print("Returning result?")
     return result
 
 
@@ -38,7 +40,8 @@ def process_syllabus():
             return {'course_id': 'invalid'}
         return processor.initialize_syllabus()
     except ValueError as e:
-        print(e)
+        if is_debug():
+            print(e)
         return {'status': 'error'}
 
 # Question Answering Route
@@ -48,6 +51,7 @@ def advanced_question():
         data = request.get_json()
         return data
     except ValueError as e:
-        print(e)
+        if is_debug():
+            print(e)
         return 'error in the call'
 

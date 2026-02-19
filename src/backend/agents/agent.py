@@ -9,7 +9,7 @@ Usage:
 import os
 from abc import ABCMeta, abstractmethod
 from pathlib import Path
-
+from dotenv import load_dotenv
 try:
     import tomllib  # Python 3.11+
 except ImportError:
@@ -104,6 +104,8 @@ class Agent(metaclass=ABCMeta):
         Returns:
             An Agent instance of the specified type
         """
+        base_dir = Path(__file__).resolve().parent
+        load_dotenv(base_dir / ".env")
         if load_from_file:
             system_prompt = cls._load_system_prompt(prompt, Path(prompt_dir))
         else:

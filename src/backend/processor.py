@@ -1,11 +1,23 @@
 import datetime
 import json
+import os
+from agents.agent import Agent
+from pathlib import Path
+from dotenv import load_dotenv
+from debug_config import is_debug
+BASE_DIR = Path(__file__).resolve().parent
 
 
 class SyllabusProcessor:
     # init class
     def __init__(self, data):
         self.data = data
+        self.status = 'valid'
+        self.course_id = 'invalid'
+        self.course_name = 'invalid'
+        self.instructor = 'invalid'
+        self.course_dates = 'invalid'
+        self.prompt_dir = BASE_DIR / 'agents' / 'agent_prompts'
         pass
 
     # temporary function
@@ -35,6 +47,39 @@ class SyllabusProcessor:
     def get_course_instructor(self):
         #     get course id
         return "Gandalf the Grey"
+    def set_base_info(self):
+        key = os.getenv("ANTHROPIC_API_KEY")
+        if not key:
+            if is_debug():
+                print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retrying load...")
+            start_path = Path(__file__).resolve().parent
+            for path in [start_path] + list(start_path.parents):
+                env_file = path / '.env'
+                if env_file.exists():
+                    load_dotenv(env_file)
+                    key = os.getenv("ANTHROPIC_API_KEY")
+                    if not key:
+                        if is_debug():
+                            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
+
+
+        try:
+            agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
+            raw_base_info = agent.invoke(str(self.data))
+            if is_debug():
+                print(f"DEBUGGING: raw_base_info: {raw_base_info}")
+            items = raw_base_info.split(',')
+            self.course_name = items[1]
+            self.course_id = items[0]
+            self.instructor = items[2]
+            self.course_dates = items[3]
+
+        except Exception as e:
+            if is_debug():
+                print(f"Error during base information retrieval: {e}")
+            self.status = 'error'
+            return None
+        return None
 
     def get_processing_date(self):
         #     get course id
@@ -62,22 +107,30 @@ class SyllabusProcessor:
         return sections
 
     def initialize_syllabus(self):
-        json_syllabus = {
-            'status': 'valid',
-            'course_id': self.get_course_id(),
-            'course_name': self.get_course_name(),
-            'course_dates': self.get_course_dates(),
-            'instructor': self.get_course_instructor(),
-            'processing_date': self.get_processing_date(),
-            'raw_text': self.data,
-            'sections': self.generate_syllabus_sections()
-        }
-        print(json.dumps(json_syllabus, indent=4))
-        return self.test_process()
+        try:
+            self.set_base_info()
+            json_syllabus = {
+                'status': self.status,
+                'course_id': self.course_id,
+                'course_name': self.course_name,
+                'course_dates': self.course_dates,
+                'instructor': self.instructor,
+                'processing_date': self.get_processing_date(),
+                'raw_text': self.data,
+                'sections': self.generate_syllabus_sections()
+            }
+        except ValueError as e:
+            if is_debug():
+                print(f"Error in initialization: {e}")
+            return {'status': 'error'}
+        json_syllabus["status"] = 'valid'
+        if is_debug():
+            print(json.dumps(json_syllabus, indent=4))
+        return json_syllabus
 
-
-test_data = {
-    'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
-}
-process = SyllabusProcessor(test_data)
-process.initialize_syllabus()
+if __name__ == '__main__':
+    test_data = {
+        'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
+    }
+    process = SyllabusProcessor(test_data)
+    process.initialize_syllabus()
