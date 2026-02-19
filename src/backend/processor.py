@@ -4,7 +4,7 @@ import os
 from agents.agent import Agent
 from pathlib import Path
 from dotenv import load_dotenv
-
+from debug_config import is_debug
 BASE_DIR = Path(__file__).resolve().parent
 
 
@@ -50,7 +50,8 @@ class SyllabusProcessor:
     def set_base_info(self):
         key = os.getenv("ANTHROPIC_API_KEY")
         if not key:
-            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retrying load...")
+            if is_debug():
+                print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retrying load...")
             start_path = Path(__file__).resolve().parent
             for path in [start_path] + list(start_path.parents):
                 env_file = path / '.env'
@@ -58,13 +59,15 @@ class SyllabusProcessor:
                     load_dotenv(env_file)
                     key = os.getenv("ANTHROPIC_API_KEY")
                     if not key:
-                        print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
+                        if is_debug():
+                            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
 
 
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
-            print(f"DEBUGGING: raw_base_info: {raw_base_info}")
+            if is_debug():
+                print(f"DEBUGGING: raw_base_info: {raw_base_info}")
             items = raw_base_info.split(',')
             self.course_name = items[1]
             self.course_id = items[0]
@@ -72,7 +75,8 @@ class SyllabusProcessor:
             self.course_dates = items[3]
 
         except Exception as e:
-            print(f"Error during base information retrieval: {e}")
+            if is_debug():
+                print(f"Error during base information retrieval: {e}")
             self.status = 'error'
             return None
         return None
@@ -116,15 +120,17 @@ class SyllabusProcessor:
                 'sections': self.generate_syllabus_sections()
             }
         except ValueError as e:
-            print(f"Error in initialization: {e}")
+            if is_debug():
+                print(f"Error in initialization: {e}")
             return {'status': 'error'}
         json_syllabus["status"] = 'valid'
-        print(json.dumps(json_syllabus, indent=4))
+        if is_debug():
+            print(json.dumps(json_syllabus, indent=4))
         return json_syllabus
 
-
-test_data = {
-    'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
-}
-process = SyllabusProcessor(test_data)
-process.initialize_syllabus()
+if __name__ == '__main__':
+    test_data = {
+        'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
+    }
+    process = SyllabusProcessor(test_data)
+    process.initialize_syllabus()
