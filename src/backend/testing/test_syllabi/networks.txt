@@ -1,0 +1,146 @@
+ECE/CS 372 – Introduction to Computer Networks  - 4 Credits
+Instructor: Prof. Bechir Hamdaoui
+
+Catalog Course Description:
+Computer network principles, fundamental networking concepts, packet-switching and circuit switching, TCP/IP protocol layers, reliable data transfer, congestion control, flow control, packet forwarding and routing, MAC addressing, multiple access techniques.
+
+Learning Resources:
+•    Textbook (required): James F. Kurose and Keith W. Ross, Computer Networking: A Top-Down Approach Featuring the Internet, 8th Edition
+•    Wireshark: http://www.wireshark.org  (free software)
+•    Prerequisite: CS 261 (data structure) and basic mathematical/probability skills.
+
+Course Content:
+•    Fundamental computer networking concepts: packet- vs. circuit-switching; packet delay analysis; different delay components; network throughput; 5-layer network protocol stack
+•    Essential principles of transport layer protocol and services: reliable data transfer; congestion control and avoidance
+•    Network layer functions and services: forwarding service; routing services; subnetting and IP addressing
+•    Routing protocols: Dijkstra (Link State) routing algorithm; Bellman-Ford (Distance Vector) routing algorithm
+•    Data link layer functions and services: MAC addressing; multiple access techniques
+•    Principles of network security: confidentiality; authentication; message integrity
+
+Performance Evaluation:
+• Assignments (15% of final grade): 4 in total, 1 every two to three weeks.
+Each assignment is a set of problems mostly from the textbook covering concepts and material covered in class. They are intended to deepen your understanding of the basic and fundamental concepts and algorithms you will be learning in class. All assignments (and their due dates) will be posted on the Canvas page of the course and must be turned in also via Canvas.
+
+• Labs (15% of final grade): 6 in total, about 1 every two weeks or so.
+A set of labs from the textbook on Internet protocols covered in class. They help you understand how Internet protocols work by forcing protocols to perform certain actions while sniffing and analyzing the observed traffic. All labs (and their due dates) will be posted on the Canvas page of the course and must be turned in also via Canvas.
+
+• Quizzes (30% of final grade): 9 in total, 1 every Tuesday (starting Week 2).
+One quiz will be given every Tuesday in class on Canvas using your Laptop. Each quiz will be 15 to 20 minutes. Quizzes will be based solely on material covered in the two lectures prior to the quiz. All quizzes carry equal weight and are closed-notes.
+IMPORTANT:
+
+You are required to bring your laptop to class on Tuesdays in order to take the quiz.
+To provide flexibility, the three lowest quiz scores will be dropped. This is intended to cover any missed quizzes for any reason, including technical issues, illness, travel, or personal circumstances. No make-up quizzes will be offered under any circumstances.
+• Final Exam (40% of final grade): date/time determined by the university.
+There will be one final exam whose date/time is determined by the university. Check this information on OSU's website for final examination schedule; also check Canvas main page for this information. The examination will cover all material covered in class, from the first lecture all the way to the last one. Final Exams are closed notes.
+
+
+
+Grading scheme:
+
+Grade
+
+A
+
+A-
+
+B+
+
+B
+
+B-
+
+C+
+
+C
+
+C-
+
+D+
+
+D
+
+D-
+
+F
+
+
+
+Range
+
+100% to 90%
+
+< 90% to 86%
+
+< 86% to 82%
+
+< 82% to 78%
+
+< 78% to 74%
+
+< 74% to 70%
+
+< 70% to 65%
+
+< 65% to 60%
+
+< 60% to 56%
+
+< 56% to 52%
+
+< 52% to 45%
+
+< 45% to 0%
+
+
+
+Canvas and TA Support:
+
+Canvas: All class material will be posted on the Canvas pages of the course. All labs, quizzes and assignments will be turned in/uploaded via Canvas. Therefore, students must check and keep an eye on the course’s Canvas pages on a regular basis. All course information and announcements will be done via Canvas.
+ TA Support. If you have any questions about assignments, labs, or quizzes, please reach out to the TAs. This includes help with completing assignments or labs, questions about grading, submission deadlines, or anything else related. To make sure your question is answered as quickly as possible, please email the appropriate TA based on the topic of your question. Please refer to the main Canvas page for information on which TA handles labs, assignments, or quizzes, along with their email addresses. Both TAs are very knowledgeable and happy to help.
+Last Submission Policies:
+
+All assignments and labs must be submitted on Canvas by their posted due dates. Because assignments and labs are tied to the material covered in class, they will be released gradually as we progress through the course. I understand that unexpected situations can come up, so the following late submission policy is in place to provide some flexibility:
+
+You are allowed up to two late submissions without penalty: One assignment (up to 2 days late) and one lab (up to 2 days late). No explanation is required for these.
+Any late submission beyond the allowances above will incur a penalty:
+(1) submissions made within 24 hours after the deadline will be graded for up to 80% of the total points.
+(2) submissions made more than 24 hours late will not be accepted or graded.
+In very extreme circumstances (e.g., hospitalization), exceptions may be considered on a case-by-case basis, and documentation will be required. Please note that reasons such as power outages, internet issues, computer problems, travel, etc., will not be considered grounds for an exception.
+
+You do not need to notify the instructor or the TAs about late submissions—Canvas automatically records submission times. However, it is your responsibility to keep track of which assignment or lab (if any) you choose to use your late-submission allowance on.
+
+IMPORTANT: For any late submission, you must clearly indicate at the top of the first page whether you want it to count as your penalty-free late submission. Please note the following:
+
+If no indication is provided, the late submission will automatically be graded with a penalty and will be eligible for up to 80% of the total points.
+Your choice is final once you submit. We will grade the assignment or lab based on what you indicate (penalty-free or not). It is your responsibility to keep track of which assignment or lab you choose to use for penalty-free grading.
+If multiple late submissions are marked as penalty-free, only the first one submitted will be treated as penalty-free. All subsequent ones will be graded with the late penalty.
+Please make sure to double-check your submission before uploading to Canvas.
+
+
+
+Academic Calendar: All students are subject to the registration and refund deadlines as stated in the Academic Calendar: https://registrar.oregonstate.edu/osu-academic-calendar.
+
+Statement Regarding Students with Disabilities: Oregon State University is committed to making learning experiences accessible to all, which includes consideration of the course design, course learning outcomes, and barriers experienced by the disabled student. Disability Access Services (DAS) staff and students work together to determine reasonable accommodations. Students connected with DAS who have questions about their accommodations should reach out to their DAS Adviser. Students who have not yet completed the process for setting up accommodations, please contact DAS at 541-737-4098, visit the DAS website or email disability.services@oregonstate.edu to explore accommodations for a disability (e.g., mental health diagnoses, chronic health conditions, learning disabilities, physical conditions/injuries, etc.). Students and faculty members are encouraged to collaborate around the implementation of accommodations..
+
+Student Conduct Expectations: https://beav.es/codeofconduct.Links to an external site.
+
+Reach Out for Success: University students encounter setbacks from time to time. If you encounter difficulties and need assistance, it’s important to reach out. Consider discussing the situation with an instructor or academic advisor. Learn about resources that assist with wellness and academic success at oregonstate.edu/ReachOut. If you are in immediate crisis, please contact the Crisis Text Line by texting OREGON to 741-741 or call the National Suicide Prevention Lifeline at 1-800-273-TALK (8255)
+
+Student Bill of Rights: OSU has twelve established student rights. They include due process in all university disciplinary processes, an equal opportunity to learn, and grading in accordance with the course syllabus: https://asosu.oregonstate.edu/advocacy/rights.
+
+Course Summary:
+Course Summary
+Date	Details	Due
+Tue Jan 13, 2026	Quiz Quiz 1 w26	due by 11:50am
+Fri Jan 16, 2026	Assignment Lab 0 - Intro to Wireshark	due by 11:59pm
+Tue Jan 20, 2026	Quiz Quiz 2 w26 (ch1)	due by 11:50am
+Sun Jan 25, 2026	Assignment Assignment1	due by 11:59pm
+Tue Jan 27, 2026	Quiz Quiz 3 w26 (ch3)	due by 11:50am
+Fri Jan 30, 2026	Assignment Lab 1 - DNS	due by 11:59pm
+Tue Feb 3, 2026	Quiz Quiz 4 W26 (Ch 3)	due by 11:50am
+Sun Feb 8, 2026	Assignment Assignment2	due by 11:59pm
+Tue Feb 10, 2026	Quiz Quiz 5 w26	due by 11:50am
+Sat Feb 14, 2026	Assignment Lab 2 - TCP	due by 11:59pm
+Tue Feb 17, 2026	Quiz Quiz 6 w26 (ch4)	due by 11:50am
+Wed Feb 25, 2026	Assignment Assignment3	due by 11:59pm
+Sat Feb 28, 2026	Assignment Lab3 - IP	due by 11:59pm

@@ -1,4 +1,4 @@
-import datetime
+from datetime import date
 import json
 import os
 from agents.agent import Agent
@@ -33,20 +33,21 @@ class SyllabusProcessor:
         else:
             return True
 
-    def get_course_name(self):
-        #     get course name
-        return "Underwater Basket Weaving"
+    # def get_course_name(self):
+    #     #     get course name
+    #     return "Underwater Basket Weaving"
+    #
+    # def get_course_id(self):
+    #     #     get course id
+    #     return "528491"
+    #
+    # def get_course_dates(self):
+    #     #     get course id
+    #     return "{'start_date': '2026-01-05', 'end_date': '2026-03-30'}"
+    # def get_course_instructor(self):
+    #     #     get course id
+    #     return "Gandalf the Grey"
 
-    def get_course_id(self):
-        #     get course id
-        return "528491"
-
-    def get_course_dates(self):
-        #     get course id
-        return "{'start_date': '2026-01-05', 'end_date': '2026-03-30'}"
-    def get_course_instructor(self):
-        #     get course id
-        return "Gandalf the Grey"
     def set_base_info(self):
         key = os.getenv("ANTHROPIC_API_KEY")
         if not key:
@@ -62,15 +63,15 @@ class SyllabusProcessor:
                         if is_debug():
                             print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
                     else:
-                        print("RELOAD SUCCESSFUL: Proceeding")
+                        print("RELOAD SUCCESSFUL: Proceeding...")
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_base_info: {raw_base_info}")
             items = raw_base_info.split(',')
-            self.course_name = items[1]
-            self.course_id = items[0]
+            self.course_name = items[0]
+            self.course_id = items[1]
             self.instructor = items[2]
             self.course_dates = items[3]
 
@@ -82,8 +83,10 @@ class SyllabusProcessor:
         return None
 
     def get_processing_date(self):
-        #     get course id
-        return "2026-02-11"
+        #     get today's date
+        now = date.today()
+        formatted_date = now.strftime("%Y/%m/%d")
+        return str(formatted_date)
 
     def generate_syllabus_sections(self):
         sections = {
@@ -133,7 +136,9 @@ if __name__ == '__main__':
     test_string = {
         'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
     }
-    with open('test_syllabi/softengr2.txt', 'r') as f:
+    softengr2 = 'testing/test_syllabi/softengr2.txt'
+    networks = 'testing/test_syllabi/networks.txt'
+    with open(softengr2, 'r') as f:
         test_syllabus = f.read()
     process = SyllabusProcessor(test_syllabus)
     process.initialize_syllabus()

@@ -8,7 +8,8 @@ The course instructor's name should be the name of the instructor as well as any
 For the instructor's name, do not include titles like "Professor" or "Mr".
 For the course dates, determine the starting date of the course and the ending date of the course. If no definite ending date can be found, use the date of the final.
 
-If any of the four pieces of information cannot be determined, return simply the text "unknown" in place of the value.
+If any of the four pieces of information cannot be determined, return simply the text 'unknown' in place of the value.
+For example, if the syllabus does not contain clear course dates, simply respond with 'unknown'.
 
 Your output format should be exactly as follows:
 <course_name>,<course_ID>,<instructor_name>,<course_dates>
