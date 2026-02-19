@@ -129,6 +129,7 @@ class SyllabusProcessor:
         return json_syllabus
 
 if __name__ == '__main__':
+    os.environ['DEBUG_FLAG'] = str('True')
     test_data = {
         'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
     }

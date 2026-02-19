@@ -1,0 +1,244 @@
+Welcome to CS362: Software Engineering II
+The objective is to provide a general introduction to the "back end" of the software engineering life-cycle involving implementation, verification and validation, debugging, and maintenance.
+
+Software testing, debugging, and maintenance are essential skills for every software developer. These practices ensure that the software we create is reliable, efficient, and free from critical bugs that could lead to failures or security vulnerabilities. Testing allows us to validate that our code meets the desired functionality, while debugging helps identify and resolve errors that occur during execution. Maintenance is an ongoing process that ensures software remains functional and adaptable as new challenges and user requirements arise. By mastering these skills, students can contribute to the creation of high-quality, robust software that can stand the test of time and scale with evolving technologies.
+
+Course Learning Outcomes
+By the end of this course, you should be able to:
+
+Apply Version Control Software such as Git.
+Describe costs and benefits for using automated testing during software development.
+Describe the different types of code coverage and how they apply to software quality.
+Apply testing techniques, including black-box and white-box testing, regression testing, and automated testing suites.
+Participate effectively in a software inspection/code review.
+Participate effectively in a team environment.
+Course Contents
+Software Quality Management: (1) Software Quality (2) Software Standards (3) Reviews and Inspections (4) Software Measurements and Metrics
+Software Project Management: (1) Risk Management (2) Managing People (3) Teamwork
+Software Testing: (1) Validation and Verification (2) Development Testing (3) Test-Driven Development (4) Release Testing (5) User Testing
+Meet the Instructor
+Hi everyone, I'm Dr. Manish Motwani.Links to an external site. I am an Assistant Professor in the School of Electrical Engineering and Computer Science (EECS) at Oregon State University. My broad research interests focus on improving software quality through the automation of software engineering practices. My research involves analyzing large software repositories to discover valuable insights and use that knowledge to design novel automation techniques, such as requirements elicitation, testing, and program repair.
+
+I look forward to working with you all this term and helping you build the skills necessary for success in software engineering.
+Schedule
+The following is the tentative weekly schedule that might change depending on the progress of the class. However, you must keep up with all the assignments. The lectures and assignments can be accessed via hyperlinks in the below table. The links for lectures will be accessible after each class and the links for homework, in-class exercises, and quizes will be accessible on their release date. The links for all project assignments are accessible throughout the term.
+
+Week	Day & Date	Topic	Reading	Assignment	Project	Quiz
+week 1	Tue, 01/06/26	Course Introduction		In-class Exercise-1
+In-class Exercise-2	Project Proposal
+Thu, 01/08/26	Software Engineering Foundations 	Software Maintenance - Software EngineeringLinks to an external site.	In-class Exercise 3
+week 2	Tue, 01/13/26	Software Change Management	Git.pdf 	Homework 1 	Quiz 1: Software Maintenance Strategy
+Thu, 01/15/26	Software Team Management
+Project Requirements Elicitation
+
+week 3	Tue, 01/20/26	Project Idea Presentation
+Thu, 01/22/26	Software Testing Categories 	Types of Software TestingLinks to an external site.	Project Architecture and Design Specifications
+week 4	Tue, 01/27/26	Test Quality	what is code coverage?Links to an external site.	Homework 2
+Thu, 01/29/26	Random Testing (part 1)
+The 1990 study: "An Empirical Study of the Reliability of UNIX Utilities” https://dl.acm.org/doi/10.1145/96267.96279
+The 1995 study: “Fuzz revisited: A re-examination of the reliability of UNIX utilities
+and services” https://minds.wisconsin.edu/handle/1793/59964
+AFL https://github.com/AFLplusplusLinks to an external site.
+
+Quiz 2: Choosing a Automated Testing Technique
+week 5	Tue, 02/03/26	Random Testing (part 2)
+Thu, 02/05/26	Random Testing (part 3)		Project Implementation and Documentation
+week 6	Tue, 02/10/26	Mid-Term Project Presentation
+Thu, 02/12/26	Mid-Term Project Presentation
+week 7	Tue, 02/17/26	Build systems & Continuous Integration and Deployment
+GitHub actions: https://docs.github.com/en/actions/about-github-actions/understanding-github-actionsLinks to an external site.
+
+https://aws.amazon.com/devops/continuous-delivery/Links to an external site.
+
+Homework 3
+Thu, 02/19/26
+Software Quality Management		Project Testing and Continuous Integration 	Quiz 3: Fault Localization and Repair
+week 8	Tue, 02/24/26	Software Fault Localization
+Thu, 02/26/26	Automatic Program Repair	  apr.pdf 		Project Beta Release
+week 9	Tue, 03/03/26	In-class beta testing		In-class Exercise 4	Project Final Release
+
+Thu, 03/05/26	Technical Writing and Presentation / Wrap-up
+week 10	Tue, 03/10/26	In-class final project status update and feedback
+Thu, 03/12/26	Final Project Presentations
+NOTE: Some links on this page may only be accessible to registered students after the files are published on Canvas.
+
+Term-Long Project (35%)
+The course project is a central component of this course and provides hands-on experience with real-world software engineering practices. You will work in teams of up to four students to design, develop, test, and deploy a software product over a 9-week period. Starting from an initial idea, your team will iteratively refine requirements, design the system, implement features, apply testing and continuous integration, and produce a final working release.
+
+The project is structured around seven milestones and three graded deliverables (proposal, midterm, and final presentations/reports) to help you make steady progress. While milestones 1–4 (project proposal, requirements elicitation, architecture/design, and initial implementation/documentation) are essential for project success, the technical content required to complete these milestones will not be covered in lectures, as it is expected knowledge from the course prerequisites. That said, the instructor and TAs are available to help—you are strongly encouraged to ask questions, seek feedback, and get unstuck during project meetings, office hours, or via email.
+
+The final project deliverable will include a public poster presentation, where your team will present your work in a poster-session format. Examples of posters from students who took this course in previous offerings will be provided for reference. These examples are meant to illustrate the expected level of quality and professionalism; you are expected to propose your own original ideas and produce a final product that is comparable in scope and polish, not to replicate prior work.
+
+You are allowed and encouraged to use all available resources, including documentation, tutorials, and generative AI tools, to help you work on the project. Any such resources must be clearly and appropriately attributed in your project documentation. Reusing or modifying past projects (e.g., changing only the UI or superficial aspects) is strictly prohibited and will be considered plagiarism. Any instance of plagiarism will result in a score of 0 for the entire team.
+
+Throughout the term, your team will follow a professional development workflow: using GitHub for version control and collaboration, submitting weekly status reports, committing artifacts regularly, and participating in bi-weekly in-class project meetings with course staff. The emphasis of the project is not just building a working system, but learning how to work effectively in teams, respond to feedback, manage scope, and follow a structured software engineering process similar to what you will encounter in industry.
+
+For a more detailed description on the course project, go here.
+
+Homework (30%)
+There will be three individual homework assignments designed to assess your understanding of core software engineering skills covered in this course, including using Git for version control, writing high-quality tests, and applying automated testing techniques. While each homework must be completed and submitted individually, collaboration is encouraged—you may discuss ideas and approaches with other students, provided that you clearly acknowledge all collaborators in your submission. You will have approximately two weeks to complete each homework. For Homework 2 and Homework 3, there will also be an in-class bootstrap exercise on the assignment release date, during which you will set up the required infrastructure and tooling to help you get started efficiently.
+
+Quizzes (20%)
+There will be three quizzes in this course designed to evaluate your understanding of key conceptual topics discussed in lectures. The quizzes will cover software maintenance strategies, choosing appropriate automated testing techniques, and fault localization and repair. Each quiz is short and focused, consisting of a small number of questions, and is intended to assess your ability to reason about concepts rather than memorize details. All quizzes will be completed individually and must be submitted by their respective deadlines listed on Canvas. Students may attempt each quiz up to two times during the quiz availability window. There is no time limit for each attempt, and the higher score will be recorded.
+
+In-Class Exercises (ICEs) (15%)
+There will be four in-class exercises (ICEs) designed to assess prerequisite skills, provide early hands-on practice, and reinforce key course concepts. The first three ICEs will take place during the first week of the course and are intended to evaluate your readiness for the course while giving you a practical preview of the types of tasks you will encounter in assignments and the course project. These exercises focus on navigating a UNIX-like environment, writing shell scripts, and implementing and evaluating basic data structures. The fourth ICE will occur toward the end of the course and will involve beta testing another team’s project, giving you experience with evaluating real software, providing constructive feedback, and thinking from the perspective of users and testers.
+
+Grading Policy
+Homework: 30% (10% each homework)
+Quizzes: 20% (5% + 5% + 10%)
+In-Class Exercises: 15% (2% + 3% + 5% + 5%)
+Project: 35% (10% project idea presentation and report,
+                       10% project plan presentation and report,
+                       15% final presentation and report)
+93 – 100: A
+90 – 92:   A-
+87 – 89:   B+
+83 – 86:   B
+80 – 82:   B-
+77 – 79:   C+
+73 – 76:   C
+70 – 72:   C-
+67 – 69:   D+
+63 – 66:   D
+60 – 62:   D-
+     < 60:   F
+Late Submission Policy
+All assignments come with an automatic 1-day extension. You do not need to email the instructor to use this extension.
+
+If you require an extension beyond 1 day, you must email the instructor with a valid reason before the assignment's due date. Failure to request an extension in advance will result in a loss of points, as outlined below:
+
+1–2 days late: 10% deduction
+3–4 days late: 20% deduction
+5–6 days late: 30% deduction
+7–8 days late: 50% deduction
+9 or more days late: 100% deduction (no credit)
+Nondiscrimination Policy
+Software engineering is at its nature a collaborative activity and it benefits greatly from diversity. This course includes and welcomes all students regardless of age, background, citizenship, disability, sex, education, ethnicity, family status, gender, gender identity, geographical origin, language, military experience, political views, race, religion, sexual orientation, socioeconomic status, and work experience. Our discussions and learning will benefit from these and other diverse points of view. Any kind of language or action displaying bias against or discriminating against members of any group, or making members of any group uncomfortable are against the mission of this course and will not be tolerated. The instructor welcomes discussion of this policy, and encourages anyone experiencing concerns to speak with him.
+
+Academic Integrity
+Students are allowed to work together on all aspects of this class. However, for the homework assignments, each student must submit his or her own write up, clearly stating the collaborators. Your submission must be your own. When in doubt, contact the instructors about whether a potential action would be considered plagiarism. If you discuss material with anyone besides the class staff, acknowledge your collaborators in your write-up. If you obtain a key insight with help (e.g., through library work or a friend), acknowledge your source and write up the summary on your own. It is the student's responsibility to remove any possibility of someone else's work from being misconstrued as the student's. Never misrepresent someone else's work as your own. It must be absolutely clear what material is your original work. Plagiarism and other anti-intellectual behavior will be dealt with severely. Note that facilitation of plagiarism (giving your work to someone else) is also considered to be plagiarism, and will carry the same repercussions.
+
+Students are encouraged to use the Internet, literature, and other publicly-available resources, except the homework solutions and test (including quizzes, in-class exercises and project artifacts) solutions, from past terms' versions of this course and other academic courses, whether at OSU and at other institutions. To reiterate, the students are not allowed to view and use past homework and test solutions, unless explicitly distributed by the CS 362 staff as study material.
+
+Whenever students use Internet (including generate AI tools such as Claude, Gemini, and ChatGPT), literature, and other publicly-available resources, they must clearly reference the materials in their write ups, attributing proper credit. This cannot be emphasized enough: attribute proper credit to your sources. Failure to do so will result in a zero grade for the assignment and possibly a failing grade for the class, at the instructor's discretion. Copying directly from resources is not permitted, unless the copying is clearly identified as a quote from a source. Most use of references should be written in the words of the student, placing the related work in proper context and describing the relevant comparison.
+Steps to Get Help
+Read again the assignment, lecture slides, and/or reading material provided on syllabus page
+Search on internet (e.g., using Google) or using generative AI (e.g., ChatGPT, Gemini, Claude, etc.) and understand the suggested readings.
+Ask a friend or classmate.
+Check the Canvas Discussion Section and Course Discord Channel Links to an external site. for relevant posts or create a new question <-- This is often the fastest approach
+Ask a TA:
+You can attend office hours virtually (see the TA Office Hours page)
+Attend Dr. Motwani' office hours.
+Office hours will take place in my office located in the Kelley Engineering Center room 3043 each Wednesday from 1100 to 1300.
+Communication Policy
+Please post all course-related questions in the General Q&A Discussion so the entire class can benefit from our conversation.
+Avoid using the Canvas mailbox because it doesn't work very well. Please send an email for matters of a personal nature, but be so kind as to use your OSU email to contact me. When you send us an email, you must include the tag "[CS 362]" in your email subject.  When you email your TA or me, you should expect a response within 48 hours.
+
+I will strive to return your grades for course activities to you within 10 business days after the assignment due date.  My TAs will reply to course-related questions in the General Q&A Discussion and in the course Discord Channel within [24 hours].
+
+Instructor Information and  Office Hours
+Manish Motwani, Assistant Professor
+manish.motwani@oregonstate.edu
+Office Location 3043 Kelley Engineering Center
+
+Office hours will take place in my office located in the Kelley Engineering Center room 3043 each Wednesday from 11 AM to 1 PM.
+
+TA Contact Information & Office Hours
+TA office hours start Friday of Week 1.
+
+General course questions? Post to Canvas Discussion or Discord Channel Links to an external site..
+TA:
+Rahil Mehta - mehtara@oregonstate.edu -  by Zoom Links to an external site., Fridays 4-6 PM.
+Ninad Anklesaria - anklesan@oregonstate.edu -  by Zoom Links to an external site., Mondays 9-11 AM.
+Additional Academic Support
+There are many resources available to help you achieve your goals in each course. Listed below are several that are applicable to all students in all courses:
+
+Disability Access Services (DAS) provides accommodations, education, consultation, and advocacy for qualified students with disabilities at Oregon State University. DAS works with students at OSU, OSU-Cascades, across Oregon, and around the world through the OSU E-campus program.
+The Academic Success Center (ASC) exists to help you locate academic support on campus. Email (success@oregonstate.edu), text (541-444-5906), or visit the website to learn more about available resources for academic support.
+The Writing Center. can help you with many different writing projects. Their peer writing consultants support all aspects of the writing process, from brainstorming and organization to questions of grammar and usage.
+Academic Advisors can help you navigate the university and its many processes. If you find yourself struggling in a course, are interested in the S/U grading options, or have questions about policies and regulations, reach out to your academic advisor as soon as possible.
+At the Oregon State University Libraries and Press, we are driven to create services and spaces that help students, faculty, and staff — across all of OSU’s units and colleges — achieve these goals. OSULP includes the Valley Library in Corvallis, routinely selected by students as the Best Place to Study on Campus.
+NOTE: Some links on this page may only be accessible to registered students.
+
+Course SW Tools & Textbooks
+ There is no required textbook for this class, but the following books constitute a very good reference for this course, consequentially their systematic consultation is warmly advised:
+
+Software Engineering: A Practitioner's Approach by Roger Pressman and Bruce Maxim ebook Links to an external site.
+Introduction to Software Testing (2nd edition) by Paul Ammann and Jeff Offutt link Links to an external site.
+Object-Oriented and Classical Software Engineering by Stephen R. Schach ebook Links to an external site.
+Software Engineering,  by Ian Sommerville link
+Ethical Engineering: A Practical Guide with Case Studies link
+During the course, you will also benefit from a combination of lectures and notes, we will also use freely accessible, openly licensed text, media, and other digital assets. Furthermore, the course will include readings from various conferences and journals where Software Engineering research is published.
+If you are worried about your writing skills, the Undergraduate Research & Writing Studio and the Online Writing Suite are available to all students. We have a lot of dedicated people working there, including advocates for ELL and international students. Please visit http://writingcenter.oregonstate.edu/ (Links to an external site.) or email me if you have questions or want to be in touch with someone at the center.
+Open Access Textbook Resources
+(Wikibooks) Software Engineering
+(Wikibooks) Introduction to Software Engineering
+(Ivan Marsic)  Software Engineering
+Software Engineering Body of Knowledge (SWEBOK)
+Related Online Links and Web Resources
+Software Engineering Body of Knowledge (SWEBOK) (Links to an external site.)
+LaRC Software Engineering (SWE) Process Improvement Initiative (SPII) (Links to an external site.)
+NASA Software Engineering Initiative Implementation Plan  (Links to an external site.)
+ACM- Software Engineering Code of Ethics and Professional PracticesLinks to an external site.
+ Git and GitHub
+
+GitHub: Creating a new repositoryLinks to an external site.
+Git HandbookLinks to an external site.
+GitHub WorkflowLinks to an external site.
+Learn Git BranchingLinks to an external site. - A visual and interactive way to learn Git.
+Pro Git BookLinks to an external site.
+GitHub GlossaryLinks to an external site.
+Software: GitHub DesktopLinks to an external site., Git GUILinks to an external site., SourceTreeLinks to an external site.
+ Links to an external site.TEAM COMMUNICATION
+
+How to create a project management communication plan
+Fist of Five Voting for gaining consensus
+RACI Matrix for defining who is responsible for what
+
+Accessibility Statements
+This course uses technologies that may support accessibility in different ways. Please refer to the accessibility statement for each technology provider for details as to the level and types of accessibility that are supported.
+
+Follow this link to access Accessibility Statements for commonly used software.
+
+
+Accessibility Tools for Canvas
+The following tools are embedded within each module of your course.
+
+ReadSpeaker - is a tool that reads text on Canvas course pages aloud.
+
+TextAid - is an additional tool that allows users to have nearly any text highlighted and read aloud, including documents, Web sites, text composed by a user, and more. If this tool is not enabled in your course, please ask your instructor to enable it.
+
+For more information, please visit the ReadSpeaker Text Aid link.
+
+If you have questions about accommodations related to a documented disability, contact the Disability Access Services (DAS) office: https://ds.oregonstate.edu/. The DAS office serves students on all campuses.
+
+
+
+
+Canvas Technical Support
+For 24/7 support for courses offered in Canvas, click the Help link in the lower left corner of any Canvas course site. Or, call the Canvas Support Hotline at 844-329-3084. You may also find helpful answers in the Canvas Student GuideLinks to an external site..
+
+
+Copyright & Ownership of Materials
+The materials on this course website are only for the use of students enrolled in this course for purposes associated with this course and may not be retained or further disseminated.
+Course materials are cited within the Syllabus and Modules based on the copyright policy of each item.
+When copyright permission is required, OSU or Ecampus has the copyright owner.
+When a fair use determination has been made, this has been documented.
+Images that are not cited have been obtained from the public domain or via a paid subscription or are images taken by the instructor.
+Please get in touch with the instructor if you have any questions about the copyright and ownership of materials presented in this course.
+
+
+Privacy Policies for External Tools
+Follow this link to access Privacy Policies for commonly used external tools that require the user to create an account.
+
+
+Student Resources
+From the bike shop to the food pantry, OSU has dozens of resources available. The student experience website has the most comprehensive list of resources available to students. Selecting the “Campus” on the right menu will allow you to find resources available to you, and the filter settings can narrow the list of resources to specific service categories.  You can then read a brief description of the service and use the links to find more information about each service and how to access it.
+
+
+Technical Support
+Additional technical support for use of software and browsers can be accessed through the OSU Service Desk. You can access the OSU Service Desk via phone at 541-737-8787 or through the online form: Submit a Help Request .
+
+Acknowledgements
+Various materials used in this course have greatly benefited from materials developed by Yuriy Brun, Massimo Felici, René Just, Marty Stepp, Kenneth M. Anderson, and Kim Mens. Thank you.
