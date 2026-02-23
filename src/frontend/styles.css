@@ -1,3 +1,8 @@
+html, body{
+    min-width: 400px;
+    min-height: 350px;
+}
+
 .screen.hidden{
     display: none;
 }
