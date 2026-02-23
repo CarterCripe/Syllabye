@@ -20,15 +20,28 @@
 
 ### Brennan Duman:
 **Goals planned for this week:**
+- Finish frontend implementation
+- Do UI testing
 
 **Team progress and issues:**
 - **What team member did:**
+    - Completed UI & pdf conversion implementation.
+    - Did first test of UI in extension environment.
 - **What worked:**
+    - UI navigation
+    - Users can add a .txt or .pdf file
 - **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:** 
+    - file types can be determined via metadata (aka MIME type) as well as file extension
+        - the MIME type for .pdf files is "application/pdf", while .txt is "text/plain"
+    - The extension developer panel in Chrome has an error panel that reports errors
+- **Where the team member had trouble and where the team member is stuck:**
+    - Class was introduced to GitHub workflows last week, but does not have any suggested workflows for HTML/CSS. More research is needed to leverage this tool
+    - When opened as an extension, the viewable window is extremly narrow
+    - Due to the same reasons we couldn't use React.js, Chrome won't allow the PDF.js library used for pdf parsing to be accessed. This portion must be redeveloped to do this locally.
 
 **Goals planned for next week:**
-- 
+- Fix extension view width issue
+- Figure out method to parse PDFs locally
 
 ### Carter Cripe:
 **Goals planned for this week:**
