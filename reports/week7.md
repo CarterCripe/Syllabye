@@ -6,15 +6,22 @@
 - Complete implementation and documentation requirements of milestone 4 (USER/DEVELOPER) guidelines
 - Finish backend syllabus initialization
 - Complete system that saves user syllabi information locally
+- Begin frontend/backend integration
 
 ### Team progress and issues:
 - **What the team did:**
+    - Began integration
+    - Did first test in browser-extension environment
 - **What worked:**
+    - front end was (mostly) able to load
 - **What team learned:**
+    - Chrome renders "popups" (aka the default addon window) differently than normal webpages, requiring modifications
 - **Where the team had trouble and where the team is stuck:**
+    - Using GitHub workflows is a required part of the project, but there does not seem to be a match for our stack easily available. Further discussion is required prior to integration testing.
 
 ### Goals planned for next week:
-- 
+- Continue integration
+- Begin preperation for final presentation
 
 ## Contributions of Individual Team Members
 
