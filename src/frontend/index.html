@@ -33,8 +33,7 @@
         <input id="fileInput" type="file" accept=".pdf,.txt" class="fileInput">
         Click to select .pdf or .txt
       </label>
-      <button id="btnProcessSyllabus" class="btnAddSyllabus">Add Syllabus</button>
-      
+      <button id="btnProcessSyllabus" class="btnAddSyllabus">Add Syllabus</button>      
     </div>
 
     <!--see syllabus-->
@@ -68,7 +67,7 @@
 
     <script>
       pdfjsLib.GlobalWorkerOptions.workerSrc = 
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        "../../libs/pdf-js-legacy/pdf.worker.js";
     </script>
 
     <script src="index.js"></script>
