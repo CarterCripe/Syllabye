@@ -50,6 +50,7 @@ class SyllabusProcessor:
                             print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
                     else:
                         print("RELOAD SUCCESSFUL: Proceeding...")
+
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
@@ -75,25 +76,36 @@ class SyllabusProcessor:
         return str(formatted_date)
 
     def generate_syllabus_sections(self):
-        sections = {
-            'late_policy': 'The late_policy is...',
-            'prerequisites': 'The prerequisites are...',
-            'course_info': 'The course_info is...',
-            'materials': 'The materials are...',
-            'course_content': 'The course_content is...',
-            'grading_scale': 'The grading_scale is...',
-            'grading_categories': 'The grading_categories are...',
-            'assignments': 'The assignments are...',
-            'lab_info': 'The lab_info is...',
-            'exam_policy': 'The exam_policy is...',
-            'support_info': 'The support_info is...',
-            'accommodations': 'The accommodations are...',
-            'academic_integrity': 'The academic_integrity policy is...',
-            'ai_policy': 'The ai_policy is...',
-            'wellness_resources': 'The wellness_resources are...',
-            'student_rights': 'The student_rights are...',
+        try:
+            agent: Agent = Agent.get_agent('claude', "getSections:latest", True, str(self.prompt_dir))
+            raw_sections = agent.invoke(str(self.data))
+            if is_debug():
+                print(f"DEBUGGING: raw_sections: {raw_sections}")
+            cleaned = raw_sections.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+            return json.loads(cleaned)
+        
+        except Exception as e:
+            if is_debug():
+                print(f"Error generating sections: {e}")
+
+        return {
+            'late_policy': 'Not specified.',
+            'prerequisites': 'Not specified.',
+            'course_info': 'Not specified.',
+            'materials': 'Not specified.',
+            'course_content': 'Not specified.',
+            'grading_scale': 'Not specified.',
+            'grading_categories': 'Not specified.',
+            'assignments': 'Not specified.',
+            'lab_info': 'Not specified.',
+            'exam_policy': 'Not specified.',
+            'support_info': 'Not specified.',
+            'accommodations': 'Not specified.',
+            'academic_integrity': 'Not specified.',
+            'ai_policy': 'Not specified.',
+            'wellness_resources': 'Not specified.',
+            'student_rights': 'Not specified.'
         }
-        return sections
 
     def initialize_syllabus(self):
         try:
@@ -120,10 +132,6 @@ class SyllabusProcessor:
 if __name__ == '__main__':
     os.environ['DEBUG_FLAG'] = str('True')
 
-    # Testing initialization
-    test_string = {
-        'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
-    }
     softengr2 = 'testing/test_syllabi/softengr2.txt'
     networks = 'testing/test_syllabi/networks.txt'
     with open(softengr2, 'r') as f:
