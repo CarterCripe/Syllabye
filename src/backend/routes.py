@@ -1,4 +1,3 @@
-import json
 from debug_config import is_debug
 from flask import Blueprint, request, jsonify
 from processor import SyllabusProcessor
@@ -8,22 +7,6 @@ api = Blueprint('api', __name__, url_prefix='/api')
 @api.route('/health', methods=['GET'])
 def health_check():
     return jsonify({'status': 'ok'})
-
-@api.route('/syllabus', methods=['POST'])
-def test_syllabus():
-    try:
-        data = request.get_json()
-        processor = SyllabusProcessor(data)
-    except ValueError as e:
-        if is_debug():
-            print(e)
-        return 'error in the call'
-    result = processor.test_process()
-    if is_debug():
-        print("Returning result?")
-    return result
-
-
 
 def register_routes(app):
     app.register_blueprint(api)
