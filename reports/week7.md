@@ -12,8 +12,11 @@
 - **What the team did:**
     - Began integration
     - Did first test in browser-extension environment
+    - Created workflow tools to streamline backend workflow such as debugging toggles, processing templates, and factory methods
+    - Implimented high level syllabus initialization
 - **What worked:**
     - front end was (mostly) able to load
+    - Backend is ready for a final sprint to complete functionality
 - **What team learned:**
     - Chrome renders "popups" (aka the default addon window) differently than normal webpages, requiring modifications
 - **Where the team had trouble and where the team is stuck:**
@@ -22,6 +25,8 @@
 ### Goals planned for next week:
 - Continue integration
 - Begin preperation for final presentation
+- Complete syllabus backend initialization
+- Impliment automated backend testing
 
 ## Contributions of Individual Team Members
 
@@ -68,6 +73,7 @@
     - I learned that it is important to keep track of data types throughout my code, for example using comments and debug print statements
 - **Where the team member had trouble and where the team member is stuck:**
     - I had trouble this week in determining the right balence regarding length and detail of prompt. I dont want to make prompts too long, due to processing cost and speed, but also detail is important to make sure you get exactly what you want as a response.
+    - Prompt engineering took longer than expected, and also I had trouble finding time to work on project due to other obligations that occupied all my time thursday-sunday (out of state tournament)
 
 **Goals planned for next week:**
 - Create prompts for sub-processing elements of initialization
