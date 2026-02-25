@@ -65,7 +65,8 @@
 ### Justin Primc:
 **Goals planned for this week:**
 - Complete information documents: USER/DEVELOPER GUIDELINES
-- Solve local data storage issue
+- Solve local data storage issue (getting user data stored through their interaction of the extension application)
+- Begin working on CI style testing using the Actions section of GitHub for the backend
 
 **Team progress and issues:**
 - **What team member did:** Completed both md files for the user and developer guidelines. Edited the index.js file to include a save locally feature for users' syllabi data. Added necessary files (milestone.json) for implementation into a Chrome extension.
@@ -76,4 +77,4 @@
 **Goals planned for next week:**
 - Add CI automated tests
 - Fix any new issues found through the testing process in the frontend section
-- 
+- Complete automated CI tests using GitHub actions on the backend
