@@ -18,6 +18,7 @@ def process_syllabus():
     try:
         data = request.get_json()
 
+        # Validates if requested field has correct text, if not return error
         if not data or 'text' not in data:
             return jsonify({
                 'status': 'error',
@@ -28,13 +29,17 @@ def process_syllabus():
         raw_text = data['text']
         processor = SyllabusProcessor(raw_text)
 
+        # Checks if text is empty or None
         if not processor.is_real_syllabus():
             return jsonify({'status': 'invalid'}), 400
         
+        # Runs the LLM processing and assembles JSON response
         processed_syllabus = processor.initialize_syllabus()
         if is_debug():
             print(f"Successfully processed syllabus for: {processed_syllabus.get('course_name', 'unknown')}")
+        # jsonify() wraps the python dict in a HTTP response with Content-Type: so frontend can parse it
         return jsonify(processed_syllabus)
+    
     except Exception as e:
         if is_debug():
             print(f"Error processing syllabus: {e}")

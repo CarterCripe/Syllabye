@@ -8,6 +8,7 @@ from pathlib import Path
 import argparse
 from debug_config import is_debug
 
+# Searches for a .env file in the given directory and walks upwards until it finds it, Returns true if found
 def load_env_from_root(start_path: Path):
     for path in [start_path] + list(start_path.parents):
         env_file = path / '.env'
@@ -29,11 +30,13 @@ def create_app():
             # CORS(app, origins=ALLOWED_ORIGIN)
     CORS(app, origins="chrome-extension://*")
         
+    # Registers all API routes defined in the routes.py
     app.config['DEBUG'] = True
     register_routes(app)
     return app
 
 if __name__ == '__main__':
+    # Loads the .env file which contains the Anthropic API key before starting
     if load_env_from_root(Path(__file__).resolve().parent):
         print("ENV: Loaded successfully")
         args = parse_args()

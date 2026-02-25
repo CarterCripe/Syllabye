@@ -9,7 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent
 
 
 class SyllabusProcessor:
-    # init class
+    # Initializes the processor with raw syllabus text
+    # All fields default to 'invalid; until set_base_info() runs
     def __init__(self, data):
         self.data = data
         self.status = 'valid'
@@ -33,7 +34,7 @@ class SyllabusProcessor:
         else:
             return True
 
-
+    # Calls the LLM using getBaseInfo and extracts the four core pieces of course info
     def set_base_info(self):
         key = os.getenv("ANTHROPIC_API_KEY")
         if not key:
@@ -56,6 +57,7 @@ class SyllabusProcessor:
             raw_base_info = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_base_info: {raw_base_info}")
+            # LLM returns a comma seperated string: name,ID,instructor,dates
             items = raw_base_info.split(',')
             self.course_name = items[0]
             self.course_id = items[1]
@@ -70,17 +72,20 @@ class SyllabusProcessor:
         return None
 
     def get_processing_date(self):
-        #     get today's date
+        # get today's date
         now = date.today()
         formatted_date = now.strftime("%Y/%m/%d")
         return str(formatted_date)
 
+    # Calls the LLM using getSections prompt to extract summary for each section of the syllabus, returns them as a dict
+    # Falls back to "Not speicifed." for all sections if the LLM fails, or doesn't find it
     def generate_syllabus_sections(self):
         try:
             agent: Agent = Agent.get_agent('claude', "getSections:latest", True, str(self.prompt_dir))
             raw_sections = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_sections: {raw_sections}")
+            # Strips any md code fences that LLM possibly added
             cleaned = raw_sections.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
             return json.loads(cleaned)
         
@@ -88,6 +93,7 @@ class SyllabusProcessor:
             if is_debug():
                 print(f"Error generating sections: {e}")
 
+        # Fall back for LLM call fail - Returns "Not speicifed." for every section
         return {
             'late_policy': 'Not specified.',
             'prerequisites': 'Not specified.',
@@ -107,6 +113,8 @@ class SyllabusProcessor:
             'student_rights': 'Not specified.'
         }
 
+    # Assembles the fully processed syllabus JSON object by calling set_base_info()
+    # Along with generate_syllabus_sections() then combines everything into one dict which returns to routes.py
     def initialize_syllabus(self):
         try:
             self.set_base_info()
