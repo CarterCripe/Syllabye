@@ -34,27 +34,40 @@ def register_routes(app):
 def process_syllabus():
     try:
         data = request.get_json()
-        data = json.loads(data)
-        processor = SyllabusProcessor(data)
+
+        if not data or 'text' not in data:
+            return jsonify({
+                'status': 'error',
+                'message': 'No text provided'
+            }), 400
+        
+        # This pulls just the text string from the data gathered
+        raw_text = data['text']
+        processor = SyllabusProcessor(raw_text)
+
         if not processor.is_real_syllabus():
-            return {'course_id': 'invalid'}
+            return jsonify({'status': 'invalid'}), 400
+        
         processed_syllabus = processor.initialize_syllabus()
         if is_debug():
-            print(f"Returning processed syllabus with data: {json.dumps([processed_syllabus])}")
-        return json.dumps(processed_syllabus)
-    except ValueError as e:
+            print(f"Successfully processed syllabus for: {processed_syllabus.get('course_name', 'unknown')}")
+        return jsonify(processed_syllabus)
+    except Exception as e:
         if is_debug():
-            print(e)
-        return {'status': 'error'}
+            print(f"Error processing syllabus: {e}")
+        return jsonify({
+            'status': 'error', 
+            'message': str(e)
+            }), 500
+
 
 # Question Answering Route
 @api.route('/complex-question', methods=['POST'])
 def advanced_question():
     try:
         data = request.get_json()
-        return data
-    except ValueError as e:
+        return jsonify(data)
+    except Exception as e:
         if is_debug():
             print(e)
-        return 'error in the call'
-
+        return jsonify({'status': 'error'}), 500
