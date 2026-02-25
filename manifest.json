@@ -5,6 +5,6 @@
     "description": "Say goodbye to syllabi",
     "permissions": ["storage"],
     "action": {
-        "default_popup": "index.html"
+        "default_popup": "src/frontend/index.html"
     }
 }
