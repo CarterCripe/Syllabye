@@ -52,15 +52,27 @@
 
 ### Carter Cripe:
 **Goals planned for this week:**
+ - Finish implimentation the main processing unit for syllabus implimentation
+ - Create implimentation plan the secondary complex-question answering system
+ - Begin implimentation for automated testing of the backend
 
 **Team progress and issues:**
 - **What team member did:**
+    - Implimented high level data processing
+    - Created prompting format for llm access
+    - Created template processed syllabus for use in testing and development
+    - Created debug parameter to toggle debugging statements
 - **What worked:**
+    - Creating tools upfront that will make implimentation faster later in the process, such as the template syllabus and the llm agent factory method 
 - **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:** 
+    - I learned that it is important to keep track of data types throughout my code, for example using comments and debug print statements
+- **Where the team member had trouble and where the team member is stuck:**
+    - I had trouble this week in determining the right balence regarding length and detail of prompt. I dont want to make prompts too long, due to processing cost and speed, but also detail is important to make sure you get exactly what you want as a response.
 
 **Goals planned for next week:**
-- 
+- Create prompts for sub-processing elements of initialization
+- Create implimentation plan for secondary complex-question answering system
+- Further impliment automated testing of backend
 
 ### Justin Primc:
 **Goals planned for this week:**
