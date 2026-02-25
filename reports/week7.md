@@ -63,10 +63,10 @@
 
 **Team progress and issues:**
 - **What team member did:**
-    - Implimented high level data processing
-    - Created prompting format for llm access
+    - Implimented high level data processing for base syllabus variables (ie Class info)
+    - Created prompting format for llm requests
     - Created template processed syllabus for use in testing and development
-    - Created debug parameter to toggle debugging statements
+    - Created debug parameter to toggle debugging statements during testing
 - **What worked:**
     - Creating tools upfront that will make implimentation faster later in the process, such as the template syllabus and the llm agent factory method 
 - **What team member learned:**
@@ -78,7 +78,7 @@
 **Goals planned for next week:**
 - Create prompts for sub-processing elements of initialization
 - Create implimentation plan for secondary complex-question answering system
-- Further impliment automated testing of backend
+- Impliment automated testing of backend
 
 ### Justin Primc:
 **Goals planned for this week:**
