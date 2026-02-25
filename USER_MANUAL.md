@@ -24,7 +24,7 @@ pip install -r requirements.txt
 **3. Load the extension**
 1. Go to `chrome://extensions`
 2. Turn on **Developer mode**
-3. Click **Load unpacked** and select the `src/frontend/` folder
+3. Click **Load unpacked** and select the root folder (`Syllabye`). Wait until Syllabye appears in your extensions list; this may take several seconds.
 
 ---
 
