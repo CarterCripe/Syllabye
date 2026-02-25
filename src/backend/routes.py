@@ -38,7 +38,10 @@ def process_syllabus():
         processor = SyllabusProcessor(data)
         if not processor.is_real_syllabus():
             return {'course_id': 'invalid'}
-        return processor.initialize_syllabus()
+        processed_syllabus = processor.initialize_syllabus()
+        if is_debug():
+            print(f"Returning processed syllabus with data: {json.dumps([processed_syllabus])}")
+        return json.dumps(processed_syllabus)
     except ValueError as e:
         if is_debug():
             print(e)
