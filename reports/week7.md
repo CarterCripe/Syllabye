@@ -15,7 +15,7 @@
     - Created workflow tools to streamline backend workflow such as debugging toggles, processing templates, and factory methods
     - Implimented high level syllabus initialization
 - **What worked:**
-    - front end was (mostly) able to load
+    - Frontend can be succesfully navigated in in extension view
     - Backend is ready for a final sprint to complete functionality
 - **What team learned:**
     - Chrome renders "popups" (aka the default addon window) differently than normal webpages, requiring modifications
@@ -32,7 +32,8 @@
 
 ### Brennan Duman:
 **Goals planned for this week:**
-- Finish frontend implementation
+- Finish UI implementation
+- Implement .pdf text parsing
 - Do UI testing
 
 **Team progress and issues:**
@@ -40,16 +41,16 @@
     - Completed UI & pdf conversion implementation.
     - Did first test of UI in extension environment.
 - **What worked:**
-    - UI navigation
-    - Users can add a .txt or .pdf file
+    - .pdf and .txt files can be parsed into strings that can be further processed into JSON for backend processing
+    - UI can succesfully load in extension view, & it is fully navigable
 - **What team member learned:**
     - file types can be determined via metadata (aka MIME type) as well as file extension
         - the MIME type for .pdf files is "application/pdf", while .txt is "text/plain"
-    - The extension developer panel in Chrome has an error panel that reports errors
+    - The extension developer panel in Chrome has an error panel that reports errors, and calls out when errors are explicitly raised by Chrome (e.g. manifest v3 preventing remote code execution)
 - **Where the team member had trouble and where the team member is stuck:**
     - Class was introduced to GitHub workflows last week, but does not have any suggested workflows for HTML/CSS. More research is needed to leverage this tool
     - When opened as an extension, the viewable window is extremly narrow
-    - Due to the same reasons we couldn't use React.js, Chrome won't allow the PDF.js library used for pdf parsing to be accessed. This portion must be redeveloped to do this locally.
+    - Due to manifest v3 (the same reason leading to pivot away from react.js), Chrome won't allow the PDF.js library used for pdf parsing to be accessed. This portion must be redeveloped to do this locally.
 
 **Goals planned for next week:**
 - Fix extension view width issue
