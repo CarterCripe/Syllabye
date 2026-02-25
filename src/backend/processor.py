@@ -33,20 +33,6 @@ class SyllabusProcessor:
         else:
             return True
 
-    # def get_course_name(self):
-    #     #     get course name
-    #     return "Underwater Basket Weaving"
-    #
-    # def get_course_id(self):
-    #     #     get course id
-    #     return "528491"
-    #
-    # def get_course_dates(self):
-    #     #     get course id
-    #     return "{'start_date': '2026-01-05', 'end_date': '2026-03-30'}"
-    # def get_course_instructor(self):
-    #     #     get course id
-    #     return "Gandalf the Grey"
 
     def set_base_info(self):
         key = os.getenv("ANTHROPIC_API_KEY")
@@ -133,6 +119,8 @@ class SyllabusProcessor:
 
 if __name__ == '__main__':
     os.environ['DEBUG_FLAG'] = str('True')
+
+    # Testing initialization
     test_string = {
         'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
     }
