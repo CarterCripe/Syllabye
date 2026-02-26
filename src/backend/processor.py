@@ -53,7 +53,7 @@ class SyllabusProcessor:
                         print("RELOAD SUCCESSFUL: Proceeding...")
 
         try:
-            agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
+            agent: Agent = Agent.get_agent('gemini', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_base_info: {raw_base_info}")
@@ -81,7 +81,7 @@ class SyllabusProcessor:
     # Falls back to "Not speicifed." for all sections if the LLM fails, or doesn't find it
     def generate_syllabus_sections(self):
         try:
-            agent: Agent = Agent.get_agent('claude', "getSections:latest", True, str(self.prompt_dir))
+            agent: Agent = Agent.get_agent('gemini', "getSections:latest", True, str(self.prompt_dir))
             raw_sections = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_sections: {raw_sections}")
