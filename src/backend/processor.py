@@ -9,7 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent
 
 
 class SyllabusProcessor:
-    # init class
+    # Initializes the processor with raw syllabus text
+    # All fields default to 'invalid; until set_base_info() runs
     def __init__(self, data):
         self.data = data
         self.status = 'valid'
@@ -33,7 +34,7 @@ class SyllabusProcessor:
         else:
             return True
 
-
+    # Calls the LLM using getBaseInfo and extracts the four core pieces of course info
     def set_base_info(self):
         key = os.getenv("ANTHROPIC_API_KEY")
         if not key:
@@ -50,11 +51,13 @@ class SyllabusProcessor:
                             print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
                     else:
                         print("RELOAD SUCCESSFUL: Proceeding...")
+
         try:
             agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_base_info: {raw_base_info}")
+            # LLM returns a comma seperated string: name,ID,instructor,dates
             items = raw_base_info.split(',')
             self.course_name = items[0]
             self.course_id = items[1]
@@ -69,32 +72,49 @@ class SyllabusProcessor:
         return None
 
     def get_processing_date(self):
-        #     get today's date
+        # get today's date
         now = date.today()
         formatted_date = now.strftime("%Y/%m/%d")
         return str(formatted_date)
 
+    # Calls the LLM using getSections prompt to extract summary for each section of the syllabus, returns them as a dict
+    # Falls back to "Not speicifed." for all sections if the LLM fails, or doesn't find it
     def generate_syllabus_sections(self):
-        sections = {
-            'late_policy': 'The late_policy is...',
-            'prerequisites': 'The prerequisites are...',
-            'course_info': 'The course_info is...',
-            'materials': 'The materials are...',
-            'course_content': 'The course_content is...',
-            'grading_scale': 'The grading_scale is...',
-            'grading_categories': 'The grading_categories are...',
-            'assignments': 'The assignments are...',
-            'lab_info': 'The lab_info is...',
-            'exam_policy': 'The exam_policy is...',
-            'support_info': 'The support_info is...',
-            'accommodations': 'The accommodations are...',
-            'academic_integrity': 'The academic_integrity policy is...',
-            'ai_policy': 'The ai_policy is...',
-            'wellness_resources': 'The wellness_resources are...',
-            'student_rights': 'The student_rights are...',
-        }
-        return sections
+        try:
+            agent: Agent = Agent.get_agent('claude', "getSections:latest", True, str(self.prompt_dir))
+            raw_sections = agent.invoke(str(self.data))
+            if is_debug():
+                print(f"DEBUGGING: raw_sections: {raw_sections}")
+            # Strips any md code fences that LLM possibly added
+            cleaned = raw_sections.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+            return json.loads(cleaned)
+        
+        except Exception as e:
+            if is_debug():
+                print(f"Error generating sections: {e}")
 
+        # Fall back for LLM call fail - Returns "Not speicifed." for every section
+        return {
+            'late_policy': 'Not specified.',
+            'prerequisites': 'Not specified.',
+            'course_info': 'Not specified.',
+            'materials': 'Not specified.',
+            'course_content': 'Not specified.',
+            'grading_scale': 'Not specified.',
+            'grading_categories': 'Not specified.',
+            'assignments': 'Not specified.',
+            'lab_info': 'Not specified.',
+            'exam_policy': 'Not specified.',
+            'support_info': 'Not specified.',
+            'accommodations': 'Not specified.',
+            'academic_integrity': 'Not specified.',
+            'ai_policy': 'Not specified.',
+            'wellness_resources': 'Not specified.',
+            'student_rights': 'Not specified.'
+        }
+
+    # Assembles the fully processed syllabus JSON object by calling set_base_info()
+    # Along with generate_syllabus_sections() then combines everything into one dict which returns to routes.py
     def initialize_syllabus(self):
         try:
             self.set_base_info()
@@ -120,10 +140,6 @@ class SyllabusProcessor:
 if __name__ == '__main__':
     os.environ['DEBUG_FLAG'] = str('True')
 
-    # Testing initialization
-    test_string = {
-        'text': 'When Mr Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.'
-    }
     softengr2 = 'testing/test_syllabi/softengr2.txt'
     networks = 'testing/test_syllabi/networks.txt'
     with open(softengr2, 'r') as f:

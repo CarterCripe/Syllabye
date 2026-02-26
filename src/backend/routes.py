@@ -1,4 +1,3 @@
-import json
 from debug_config import is_debug
 from flask import Blueprint, request, jsonify
 from processor import SyllabusProcessor
@@ -9,22 +8,6 @@ api = Blueprint('api', __name__, url_prefix='/api')
 def health_check():
     return jsonify({'status': 'ok'})
 
-@api.route('/syllabus', methods=['POST'])
-def test_syllabus():
-    try:
-        data = request.get_json()
-        processor = SyllabusProcessor(data)
-    except ValueError as e:
-        if is_debug():
-            print(e)
-        return 'error in the call'
-    result = processor.test_process()
-    if is_debug():
-        print("Returning result?")
-    return result
-
-
-
 def register_routes(app):
     app.register_blueprint(api)
 
@@ -34,18 +17,37 @@ def register_routes(app):
 def process_syllabus():
     try:
         data = request.get_json()
-        data = json.loads(data)
-        processor = SyllabusProcessor(data)
+
+        # Validates if requested field has correct text, if not return error
+        if not data or 'text' not in data:
+            return jsonify({
+                'status': 'error',
+                'message': 'No text provided'
+            }), 400
+        
+        # This pulls just the text string from the data gathered
+        raw_text = data['text']
+        processor = SyllabusProcessor(raw_text)
+
+        # Checks if text is empty or None
         if not processor.is_real_syllabus():
-            return {'course_id': 'invalid'}
+            return jsonify({'status': 'invalid'}), 400
+        
+        # Runs the LLM processing and assembles JSON response
         processed_syllabus = processor.initialize_syllabus()
         if is_debug():
-            print(f"Returning processed syllabus with data: {json.dumps([processed_syllabus])}")
-        return json.dumps(processed_syllabus)
-    except ValueError as e:
+            print(f"Successfully processed syllabus for: {processed_syllabus.get('course_name', 'unknown')}")
+        # jsonify() wraps the python dict in a HTTP response with Content-Type: so frontend can parse it
+        return jsonify(processed_syllabus)
+    
+    except Exception as e:
         if is_debug():
-            print(e)
-        return {'status': 'error'}
+            print(f"Error processing syllabus: {e}")
+        return jsonify({
+            'status': 'error', 
+            'message': str(e)
+            }), 500
+
 
 # Question Answering Route
 @api.route('/complex-question', methods=['POST'])
@@ -56,5 +58,4 @@ def advanced_question():
     except ValueError as e:
         if is_debug():
             print(e)
-        return 'error in the call'
-
+        return jsonify({'status': 'error'}), 500
