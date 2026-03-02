@@ -333,7 +333,7 @@ async function populateQuickInfo(){
 let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
 btnProcessSyllabus.addEventListener("click", function(){
   addSyllabus();
-})
+});
 
 // File has been changed
 let fileInput = document.getElementById("fileInput");
