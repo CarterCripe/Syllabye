@@ -10,6 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create stylelint config
+        run: |
+          cat > .stylelintrc.json << 'EOF'
+          {
+            "extends": ["stylelint-config-standard"]
+          }
+          EOF
+
       - name: Install linters
         run: |
           npm install -g htmlhint stylelint eslint
