@@ -109,7 +109,7 @@ async function saveSyllabus(courseName, syllabusData){
  * processes the file input into raw text if needed, and send to backend
  */
 async function addSyllabus(){
-  const inputObj = document.getElementById("fileInput");
+  const inputObj = document.getElementById("file-input");
   const file = inputObj.files[0];
   const courseName = document.getElementById("courseInput").value.trim();
   
@@ -336,25 +336,25 @@ btnProcessSyllabus.addEventListener("click", function(){
 });
 
 // File has been changed
-let fileInput = document.getElementById("fileInput");
+let fileInput = document.getElementById("file-input");
 fileInput.addEventListener("change", function(){
   displayChosenFile(this);
 });
 
 // Home Screen Screen Switching Buttons
 
-let btnAddSyllabus = document.getElementById("btnAddSyllabus");
+let btnAddSyllabus = document.getElementById("add-syllabus-btn");
 btnAddSyllabus.addEventListener("click", function(){
   switchScreen("home", "add");
 });
 
-let btnSeeSyllabus = document.getElementById("btnSeeSyllabus");
+let btnSeeSyllabus = document.getElementById("see-syllabus-btn");
 btnSeeSyllabus.addEventListener("click", function(){
   switchScreen("home", "raw");
   populateSeeSyllabus();
 });
 
-let btnQuickInfo = document.getElementById("btnQuickInfo");
+let btnQuickInfo = document.getElementById("quick-info-btn");
 btnQuickInfo.addEventListener("click", function(){
   switchScreen("home", "quick");
   populateQuickInfo();
