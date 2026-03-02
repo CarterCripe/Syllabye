@@ -1,0 +1,44 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create configs for stylelint and eslint
+        run: |
+          cat > .stylelintrc.json << 'EOF'
+          {
+            "extends": ["stylelint-config-standard"]
+          }
+          EOF
+          
+          cat > eslint.config.mjs << 'EOF'
+          export default [
+            {
+              rules: {
+                semi: "error",
+                "no-unused-vars": "warn"
+              }
+            }
+          ];
+          EOF
+
+
+      - name: Install linters
+        run: |
+          npm install -g htmlhint stylelint stylelint-config-standard eslint
+
+      - name: Lint HTML
+        run: htmlhint "src/frontend/index.html"
+
+      - name: Lint CSS
+        run: stylelint "src/frontend/styles.css"
+
+      - name: Lint JS
+        run: eslint "src/frontend/index.js"
