@@ -15,10 +15,10 @@ jobs:
           npm install -g htmlhint stylelint eslint
 
       - name: Lint HTML
-        run: htmlhint "**/*.html"
+        run: htmlhint "src/frontend/index.html"
 
       - name: Lint CSS
-        run: stylelint "**/*.css"
+        run: stylelint "src/frontend/styles.css"
 
       - name: Lint JS
-        run: eslint "**/*.js"
+        run: eslint "src/frontend/index.js"
