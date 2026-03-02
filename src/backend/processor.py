@@ -116,6 +116,7 @@ class SyllabusProcessor:
             'student_rights'
         ]
         for file, section in zip(files, section_names):
+            file = file + ':latest'
             try:
                 if is_debug():
                     print(f"DEBUGGING: processing section: {file}")

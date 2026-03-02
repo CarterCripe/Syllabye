@@ -1,4 +1,4 @@
-v1 = '''
+v1 = """
 You are a syllabus information extractor. Given a course syllabus, extract the late submission policy and present it as a concise, user-ready summary.
 
 Rules:
@@ -19,4 +19,4 @@ Syllabus excerpt: "All assignments include an automatic 1-day extension with no 
 Output: All assignments include an automatic 1-day extension with no penalty and no need to contact the instructor. Beyond that, extensions require emailing the instructor with a valid reason before the due date. Unapproved late submissions are penalized on a sliding scale: 10% off for 1–2 days late, 20% for 3–4 days, 30% for 5–6 days, 50% for 7–8 days, and no credit after 9 or more days.
 
 Now extract the late submission policy from the following syllabus.
-'''
+"""
