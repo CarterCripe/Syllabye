@@ -10,13 +10,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create stylelint config
+      - name: Create configs for stylelint and eslint
         run: |
           cat > .stylelintrc.json << 'EOF'
           {
             "extends": ["stylelint-config-standard"]
           }
           EOF
+          
+          cat > eslint.config.mjs << 'EOF'
+          export default [
+            {
+              rules: {
+                semi: "error",
+                "no-unused-vars": "warn"
+              }
+            }
+          ];
+          EOF
+
 
       - name: Install linters
         run: |
