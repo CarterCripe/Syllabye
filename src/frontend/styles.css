@@ -17,7 +17,7 @@ button{
     margin-top: 3em;
     min-width: 20em;
     border-radius: 100px;
-    border-width: 0px;
+    border-width: 0;
     color: white;
     height: 3em;
 }
