@@ -54,7 +54,7 @@ cd path/to/Syllabye/src/backend
 ```
 pip install -r requirements.txt
 ```
-- Wait for list of packages to finish downloading
+- Wait for the list of packages to finish downloading
 
 ### 5. Create Your API Key File
 - While still inside `src/backend/` in PowerShell, run:
@@ -92,7 +92,7 @@ python app.py
 
 **See Syllabus** — Select the `See Syllabus` button from the home screen after adding a syllabus, from there, pick a course from the dropdown to view its full text.
 
-**Quick Info** — Pick a course and a topic to see that specific section. (Not yet available)
+**Quick Info** — Pick a course and a topic to see that specific section. Buttons do have some basic functions that work but information is not yet correctly processed. All information will show the default `Not specified.` message.
 
 **Search** — Not yet available.
 
