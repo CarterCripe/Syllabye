@@ -36,24 +36,24 @@ class SyllabusProcessor:
 
     # Calls the LLM using getBaseInfo and extracts the four core pieces of course info
     def set_base_info(self):
-        key = os.getenv("ANTHROPIC_API_KEY")
+        key = os.getenv("GEMINI_API_KEY")
         if not key:
             if is_debug():
-                print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retrying load...")
+                print("CRITICAL ERROR: GEMINI_API_KEY is not set in the environment! Retrying load...")
             start_path = Path(__file__).resolve().parent
             for path in [start_path] + list(start_path.parents):
                 env_file = path / '.env'
                 if env_file.exists():
                     load_dotenv(env_file)
-                    key = os.getenv("ANTHROPIC_API_KEY")
+                    key = os.getenv("GEMINI_API_KEY")
                     if not key:
                         if is_debug():
-                            print("CRITICAL ERROR: ANTHROPIC_API_KEY is not set in the environment! Retry Failed")
+                            print("CRITICAL ERROR: GEMINI_API_KEY is not set in the environment! Retry Failed")
                     else:
                         print("RELOAD SUCCESSFUL: Proceeding...")
 
         try:
-            agent: Agent = Agent.get_agent('claude', "getBaseInfo:latest", True, str(self.prompt_dir))
+            agent: Agent = Agent.get_agent('gemini', "getBaseInfo:latest", True, str(self.prompt_dir))
             raw_base_info = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_base_info: {raw_base_info}")
@@ -81,7 +81,7 @@ class SyllabusProcessor:
     # Falls back to "Not speicifed." for all sections if the LLM fails, or doesn't find it
     def generate_syllabus_sections(self):
         try:
-            agent: Agent = Agent.get_agent('claude', "getSections:latest", True, str(self.prompt_dir))
+            agent: Agent = Agent.get_agent('gemini', "getSections:latest", True, str(self.prompt_dir))
             raw_sections = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: raw_sections: {raw_sections}")
