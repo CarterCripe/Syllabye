@@ -81,6 +81,8 @@ class SyllabusProcessor:
         prompt_name = 'fullGetSections:latest'
         model = 'gemini'
         try:
+            if is_debug():
+                print("DEBUGGING: Awaiting LLM response...")
             agent: Agent = Agent.get_agent(model, prompt_name, True, str(self.prompt_dir))
             raw_sections = agent.invoke(str(self.data))
             if is_debug():
@@ -201,7 +203,7 @@ class SyllabusProcessor:
                 'instructor': self.instructor,
                 'processing_date': self.get_processing_date(),
                 'raw_text': self.data,
-                'sections': self.process_sections()
+                'sections': self.process_sections_together(),
             }
         except ValueError as e:
             if is_debug():
