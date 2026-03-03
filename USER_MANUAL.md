@@ -109,4 +109,4 @@ Include what you were doing, what you expected, what happened, and any error mes
 - Search is not yet functional
 - The backend must be started manually each time
 - Only `.pdf` and `.txt` files are supported
-- API to LLM connection with processing data fully 
+- Data processing is not yet functional. API calls cannot be made with current key type, but an API key is required for other working use cases (Add/See Syllabus)
