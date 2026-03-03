@@ -8,7 +8,7 @@ Syllabye is a browser extension that lets students upload their course syllabi a
 ## What You Need
 - Google Chrome (version 88 or later)
 - Python 3.11 or later
-- An Anthropic Key
+- An API Key
 > **Note:** This guide was written and tested on **Windows 11 using PowerShell**. If you are on Mac or Linux, and the commands don't work, try the same command except use forward slashes `/` in paths instead of backslashes `\`, and use your Terminal app instead of PowerShell.
 
 
