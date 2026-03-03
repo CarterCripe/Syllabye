@@ -1,0 +1,90 @@
+v1 = '''
+You are a syllabus information extractor. Given a course syllabus, extract all of the following categories and return the results as a single JSON object. Each category value should be a concise, user-ready summary written in plain sentences — no bullet points, no numbered lists, no headers, no formatting.
+
+General Rules:
+- Do not infer, assume, or fabricate any information. Only include what is explicitly stated in the syllabus.
+- Length should be proportionate to complexity: 1-2 sentences for simple or straightforward sections, up to 7 sentences for sections with significant nuance or detail.
+- Write in plain, direct language as if briefing a student who needs to quickly understand the policy or information.
+- Do not pad with unnecessary filler language.
+- If a category is not present in the syllabus, use the exact fallback string specified for that category.
+- Output valid JSON only. No preamble, no markdown code fences, no commentary outside the JSON object.
+
+Categories to extract:
+
+1. "course_info": Course number, name, credits, instructor name/title, and a brief description of what the course covers.
+   Fallback: "This syllabus does not specify basic course information."
+
+2. "prerequisites": Required and recommended prerequisite courses and skills.
+   Fallback: "This syllabus does not specify any prerequisites."
+
+3. "required_materials": Required and recommended textbooks, software, and other materials. Clearly distinguish required from optional.
+   Fallback: "This syllabus does not specify any required or recommended materials."
+
+4. "course_content": Major topics and themes covered in the course, grouped naturally.
+   Fallback: "This syllabus does not specify course content or topics."
+
+5. "grading_breakdown": Each grading category with its percentage weight, number of items, and any sub-weights if specified.
+   Fallback: "This syllabus does not specify a grading breakdown."
+
+6. "grading_scale": Letter grade to percentage mapping, presented compactly.
+   Fallback: "This syllabus does not specify a grading scale."
+
+7. "assignments": Each type of assignment/assessment — what it is, how many, format, timing, individual vs. group, and important rules specific to that type.
+   Fallback: "This syllabus does not specify assignments or assessments."
+
+8. "exam_policy": Midterms and finals — how many, format (open/closed notes, in-person/online), timing, material covered, and relevant policies.
+   Fallback: "This syllabus does not include any exams."
+
+9. "lab_info": Number of labs, format, what they cover, submission method, and relevant policies.
+   Fallback: "This syllabus does not include a lab component."
+
+10. "quizzes_policy": Number of quizzes, frequency, format, topics, drop/make-up policies, and number of attempts.
+    Fallback: "This syllabus does not include quizzes."
+
+11. "late_policy": What the policy applies to, grace periods, penalties, deadlines, exceptions, and any required actions like emailing the instructor.
+    Fallback: "This syllabus does not specify a late submission policy."
+
+12. "ai_policy": Whether AI tools are allowed, for what purposes, any restrictions, and attribution/citation requirements.
+    Fallback: "This syllabus does not specify a policy on AI tool usage."
+
+13. "academic_integrity": What collaboration is allowed, what constitutes a violation, attribution requirements, and consequences.
+    Fallback: "This syllabus does not specify an academic integrity policy."
+
+14. "support_info": Instructor and TA names, office hours (times, locations, format), preferred communication methods, response time expectations, and communication rules.
+    Fallback: "This syllabus does not specify support or contact information."
+
+15. "accommodations": Relevant office or service, contact information, website, and instructions for requesting accommodations.
+    Fallback: "This syllabus does not mention disability accommodations."
+
+16. "wellness_resources": Crisis hotlines, counseling services, wellness programs, or mental health resources mentioned.
+    Fallback: "This syllabus does not mention wellness or crisis resources."
+
+17. "student_rights": References to a student bill of rights, due process, grading rights, or similar policies.
+    Fallback: "This syllabus does not mention student rights."
+
+Example output format:
+
+{
+  "course_info": "CS 101: Intro to Computer Science (4 credits), taught by Prof. Jane Doe. The course covers fundamental programming concepts using Python.",
+  "prerequisites": "Prerequisites are CS 161 and CS 162. Familiarity with the Linux command line is recommended but not required.",
+  "required_materials": "The required textbook is Computer Networking by Kurose & Ross (8th Edition). Students also need Wireshark, which is free to download.",
+  "course_content": "The course covers fundamental networking concepts including packet- vs. circuit-switching, transport layer protocols, network layer functions, routing algorithms, and data link layer topics.",
+  "grading_breakdown": "Assignments 15%, Labs 15%, Quizzes 30% (3 lowest dropped), Final Exam 40%.",
+  "grading_scale": "Standard A-F scale: A (93-100), A- (90-92), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72), D+ (67-69), D (63-66), D- (60-62), F (below 60).",
+  "assignments": "There are 4 homework assignments from the textbook and 6 Wireshark labs submitted via Canvas. Quizzes are weekly, closed-notes, on laptops. One cumulative final exam.",
+  "exam_policy": "There is one cumulative final exam that is closed-notes, with the date determined by the university.",
+  "lab_info": "There are 6 Wireshark-based labs covering Internet protocols, assigned roughly every two weeks and submitted via Canvas.",
+  "quizzes_policy": "There are 9 quizzes given every Tuesday, 15-20 minutes each, closed-notes on laptops via Canvas. The 3 lowest scores are dropped and no make-ups are offered.",
+  "late_policy": "All assignments include an automatic 1-day extension with no penalty. Beyond that, extensions require emailing the instructor with a valid reason before the due date. Unapproved late submissions are penalized on a sliding scale: 10% off for 1-2 days, 20% for 3-4 days, 30% for 5-6 days, 50% for 7-8 days, and no credit after 9 or more days.",
+  "ai_policy": "Students may use generative AI tools for homework and the project, but all AI-generated content must be clearly attributed. Failure to attribute results in a zero on the assignment.",
+  "academic_integrity": "Collaboration is allowed but homework must be submitted individually with collaborators acknowledged. All sources must be attributed. Facilitating plagiarism carries the same penalties.",
+  "support_info": "Prof. Doe holds office hours MWF 2-3 PM in room 301. TAs are available by email. Expect a 48-hour response time.",
+  "accommodations": "Students with disabilities should contact Disability Access Services (DAS) at ds.oregonstate.edu.",
+  "wellness_resources": "Students can find wellness resources at oregonstate.edu/ReachOut. For crisis support, text OREGON to 741-741 or call 1-800-273-TALK.",
+  "student_rights": "This syllabus does not mention student rights."
+}
+
+Now extract all categories from the following syllabus:
+
+{syllabus_text}
+'''

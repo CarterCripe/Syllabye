@@ -24,7 +24,8 @@ except ImportError:
     ANTHROPIC_AVAILABLE = False
 
 try:
-    import google.genai as genai
+    from google import genai
+    from google.genai import types
     GEMINI_AVAILABLE = True
 except ImportError:
     genai = None
@@ -158,33 +159,29 @@ class ClaudeAgent(Agent):
 
 
 class GeminiAgent(Agent):
-    """Google Gemini LLM agent (using Google AI SDK with API key)."""
+    """Modern Gemini LLM agent using the unified Google GenAI SDK."""
 
     def __init__(self, system_prompt: str, api_key: str, model: str):
         super().__init__(system_prompt)
-        if not GEMINI_AVAILABLE:
-            raise ImportError("google-generativeai package is required for Gemini support")
-
-        genai.configure(api_key=api_key)
-        self.client = genai.GenerativeModel(
-            model_name=model,
-            system_instruction=system_prompt
-        )
-        self._model = model
+        self.client = genai.Client(api_key=api_key)
+        self.model_name = model
+        self.system_prompt = system_prompt
 
     def invoke(self, user_prompt: str) -> str:
-        response = self.client.generate_content(
-            user_prompt,
-            generation_config={
-                "temperature": 0.3,
-                "max_output_tokens": 4096,
-            }
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            contents=user_prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=self.system_prompt,
+                temperature=0.3,
+                max_output_tokens=4096,
+            )
         )
         return response.text
 
     @property
     def model(self) -> str:
-        return self._model
+        return self.model_name
 
 
 if __name__ == "__main__":

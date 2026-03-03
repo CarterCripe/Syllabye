@@ -77,6 +77,83 @@ class SyllabusProcessor:
         formatted_date = now.strftime("%Y/%m/%d")
         return str(formatted_date)
 
+    def process_sections_together(self):
+        prompt_name = 'fullGetSections:latest'
+        model = 'gemini'
+        try:
+            if is_debug():
+                print("DEBUGGING: Awaiting LLM response...")
+            agent: Agent = Agent.get_agent(model, prompt_name, True, str(self.prompt_dir))
+            raw_sections = agent.invoke(str(self.data))
+            if is_debug():
+                print(f"DEBUGGING: raw_sections output: {raw_sections}")
+            # Strips any md code fences that LLM possibly added
+            cleaned = raw_sections.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+            return json.loads(cleaned)
+
+        except Exception as e:
+            if is_debug():
+                print(f"Error generating sections: {e}")
+
+    # This function is currently unusable, but may be re-added later
+
+    # def process_sections(self):
+    #     files = [
+    #         'latePolicy',
+    #         'courseInfo',
+    #         'prerequisites',
+    #         'requiredMaterials',
+    #         'courseContent',
+    #         'gradingBreakdown',
+    #         'gradingScale',
+    #         'assignments',
+    #         'examPolicy',
+    #         'labInfo',
+    #         'supportInfo',
+    #         'accomodations',
+    #         'academicIntegrity',
+    #         'aiPolicy',
+    #         'studentRights',
+    #         'studentWellness'
+    #     ]
+    #     results = {}
+    #     section_names = [
+    #         'late_policy',
+    #         'prerequisites',
+    #         'course_info',
+    #         'materials',
+    #         'course_content',
+    #         'grading_scale',
+    #         'grading_categories',
+    #         'assignments',
+    #         'lab_info',
+    #         'exam_policy',
+    #         'support_info',
+    #         'accommodations',
+    #         'academic_integrity',
+    #         'ai_policy',
+    #         'wellness_resources',
+    #         'student_rights'
+    #     ]
+    #     for file, section in zip(files, section_names):
+    #         file = file + ':latest'
+    #         try:
+    #             if is_debug():
+    #                 print(f"DEBUGGING: processing section: {file}")
+    #                 agent: Agent = Agent.get_agent('claude', file, True, str(self.prompt_dir))
+    #                 raw_base_info = agent.invoke(str(self.data))
+    #                 if is_debug():
+    #                     print(f"DEBUGGING: raw_base_info for section {file}: {raw_base_info}")
+    #                 results[section] = raw_base_info
+    #         except Exception as e:
+    #             if is_debug():
+    #                 print(f"Error processing section '{file}': {e}")
+    #                 print(f"Results at error: {results}")
+    #                 return results
+    #     if is_debug():
+    #         print(f"DEBUGGING: returning sections: {results}")
+    #     return results
+
     # Calls the LLM using getSections prompt to extract summary for each section of the syllabus, returns them as a dict
     # Falls back to "Not speicifed." for all sections if the LLM fails, or doesn't find it
     def generate_syllabus_sections(self):
@@ -126,7 +203,7 @@ class SyllabusProcessor:
                 'instructor': self.instructor,
                 'processing_date': self.get_processing_date(),
                 'raw_text': self.data,
-                'sections': self.generate_syllabus_sections()
+                'sections': self.process_sections_together(),
             }
         except ValueError as e:
             if is_debug():
@@ -145,4 +222,5 @@ if __name__ == '__main__':
     with open(softengr2, 'r') as f:
         test_syllabus = f.read()
     process = SyllabusProcessor(test_syllabus)
+    # process.process_sections()
     process.initialize_syllabus()
