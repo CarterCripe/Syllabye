@@ -23,9 +23,9 @@ python --version
 ```
 - If you see something like `Python 3.11.x`, then you already have it. (3.11 and higher works)
 - If you don't see that or it is a lower version, you will need to update/install.
-    - Go to https://www.python.org/downloads/ and click the large yellow **Download Python** button at the top of the page. This downloads a .exe installer, run this installer.
+    - Go to https://www.python.org/downloads/release/python-3143/ and scroll down to the bottom of the page to the **Files** section, not the install manager, but in the version column select the appropriate download for your machine. (e.g `Windows installer (64-bit)`)
     - **Before clicking Install**, make sure to check the "Add Python to PATH" at the bottom of the first screen.
-    - After installing, verify it worked: (You should see `Python 3.11.x`)
+    - After installing, verify it worked: (You should see `Python 3.14.3`)
 ```
 python --version
 ```
