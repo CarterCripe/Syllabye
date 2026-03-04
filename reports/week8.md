@@ -18,15 +18,30 @@
 
 ### Brennan Duman:
 **Goals planned for this week:**
+- fix extension view width issue
+- figure out method to parse pdfs locally
+- Added linting CI test for HTML/JS/CSS
 
 **Team progress and issues:**
 - **What team member did:**
+    - set min size properties to control extension view window
+    - locally imported pdf.js library
+    - Created and added logo
+    - Added linting CI test for frontend
 - **What worked:**
+    - setting min size properties prevents viewing window from shrinking
+    - downloading only the needed files avoids downloading the entirety of the library
+    - Kept logo simple
+    - CI yaml file was easy to set up, even with few CI solutions being offered directly by Github that matches our usecase
 - **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:** 
+    - There's nothing preventing people from downloading open source libraries like pdf.js vs using them over the web... seems obvious, but never thought about it
+    - kebab-case is industry standard for CSS & HTML object names
+- **Where the team member had trouble and where the team member is stuck:**
+    - When adding CSS linting, it caught style issues regarding classes and ids named with camelCase rather than kebab-case, which is industry standard. Need to go through and fix all instances not caught by the linter to maintain consistent style
 
 **Goals planned for next week:**
-- 
+- Fix style issues around naming conventions
+- Create the project poster
 
 ### Carter Cripe:
 **Goals planned for this week:**
