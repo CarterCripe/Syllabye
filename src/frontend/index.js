@@ -8,14 +8,14 @@
 function getScreenObj(screenName){
   let screen;
   switch(screenName){
-    case "home": screen = "scrHome"; break;
-    case "add": screen = "scrAddSyl"; break;
-    case "raw": screen = "scrSeeSyl"; break;
-    case "quick": screen = "scrQuickInfo"; break;
-    case "search": screen = "scrSearchResults"; break;
+    case "home": screen = "scr-home"; break;
+    case "add": screen = "scr-add-syl"; break;
+    case "raw": screen = "scr-see-syl"; break;
+    case "quick": screen = "scr-quick-info"; break;
+    case "search": screen = "scr-search-results"; break;
     default:
       console.log("Error: Not supported screen");
-      screen = "scrHome";
+      screen = "scr-home";
   }
 
   return document.getElementById(screen);
@@ -75,7 +75,7 @@ async function processPDF(file){
  */
 function addSyllabusError(errorMessage){
   console.log(errorMessage);
-  let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+  let btnProcessSyllabus = document.getElementById("process-syllabus-btn");
   btnProcessSyllabus.textContent = errorMessage;
 }
 
@@ -111,7 +111,7 @@ async function saveSyllabus(courseName, syllabusData){
 async function addSyllabus(){
   const inputObj = document.getElementById("file-input");
   const file = inputObj.files[0];
-  const courseName = document.getElementById("courseInput").value.trim();
+  const courseName = document.getElementById("course-input").value.trim();
   
   if(!file){
     addSyllabusError("Error! No file found.");
@@ -143,7 +143,7 @@ async function addSyllabus(){
   }
 
   //Let user know that the LLM is working 
-  let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+  let btnProcessSyllabus = document.getElementById("process-syllabus-btn");
   btnProcessSyllabus.textContent = "Processing...";
 
   try {
@@ -183,9 +183,9 @@ function displayChosenFile(fileInput){
   //substring is reqd because file paths are obscured behind "C:\fakepath\"
   let fileName = fileInput.value.substring(12, fileInput.value.length);
   
-  let courseName = document.getElementById("courseInput").value;
+  let courseName = document.getElementById("course-input").value;
 
-  let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+  let btnProcessSyllabus = document.getElementById("process-syllabus-btn");
 
   //"Add CS 362: syllabus.pdf"
   btnProcessSyllabus.textContent = "Add " + courseName + ": " + fileName;
@@ -208,7 +208,7 @@ async function getAllSyllabi(){
 */
 async function populateSeeSyllabus(){
   const syllabi = await getAllSyllabi();
-  const screen = document.getElementById("scrSeeSyl");
+  const screen = document.getElementById("scr-see-syl");
   const select = screen.querySelector("select");
   const display = screen.querySelector("div");
 
@@ -251,7 +251,7 @@ async function populateSeeSyllabus(){
 */
 async function populateQuickInfo(){
   const syllabi = await getAllSyllabi();
-  const screen = document.getElementById("scrQuickInfo");
+  const screen = document.getElementById("scr-quick-info");
   const selects = screen.querySelectorAll("select");
   const courseSelect = selects[0];
   const topicSelect = selects[1];
@@ -330,7 +330,7 @@ async function populateQuickInfo(){
  */
 
 // Add Syllabus
-let btnProcessSyllabus = document.getElementById("btnProcessSyllabus");
+let btnProcessSyllabus = document.getElementById("process-syllabus-btn");
 btnProcessSyllabus.addEventListener("click", function(){
   addSyllabus();
 });
@@ -360,24 +360,24 @@ btnQuickInfo.addEventListener("click", function(){
   populateQuickInfo();
 });
 
-let btnSearch = document.getElementById("btnSearch");
+let btnSearch = document.getElementById("search-btn");
 btnSearch.addEventListener("click", function(){
   switchScreen("home", "search");
 });
 
 // Back (to home) screen switching buttons
 
-let btnAddSylBack = document.getElementById("btnAddSylBack");
+let btnAddSylBack = document.getElementById("add-syl-back-btn");
 btnAddSylBack.addEventListener("click", function(){
   switchScreen("add", "home");
 });
 
-let btnSeeSylBack = document.getElementById("btnSeeSylBack");
+let btnSeeSylBack = document.getElementById("see-syl-back-btn");
 btnSeeSylBack.addEventListener("click", function(){
   switchScreen("raw", "home");
 });
 
-let btnQuickInfoBack = document.getElementById("btnQuickInfoBack");
+let btnQuickInfoBack = document.getElementById("quick-info-back-btn");
 btnQuickInfoBack.addEventListener("click", function(){
   switchScreen("quick", "home");
 });
