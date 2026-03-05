@@ -13,6 +13,7 @@
     - Made major steps forward in frontend/backend integration
     - Delayed final presentation prep in favour of beta testing prep
     - Implemented automated CI testing for frontend and backend
+    - Completed backend syllabus initialization
 - **What worked:**
     - Syllabi can be easily added and retrieved in whole
 - **What team learned:**
@@ -24,6 +25,8 @@
 - Collect feedback from beta test
 - Begin prep for final presentation
     - create poster
+- Complete question search route
+- Complete advanced question answering syllabus route
 - Finalize integration
 
 ## Contributions of Individual Team Members
@@ -57,15 +60,26 @@
 
 ### Carter Cripe:
 **Goals planned for this week:**
+- Create prompts for sub-processing elements of initialization
+- Create implimentation plan for secondary complex-question answering system
+- Impliment automated testing of backend
 
 **Team progress and issues:**
 - **What team member did:**
+    - Completed backend syllabus initialization
+    - Completed prompts for initialization
+    - Helped impliment full backend testing
 - **What worked:**
+    - I was able to use infrastructure that I spent time earlier in the term creating to greatly speed up the implimentation process
 - **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:** 
+    - It is really important to consider volume and rate limiting when working with expensive llm apis because if you let context grow too much, the api will be expensive or not work properly
+- **Where the team member had trouble and where the team member is stuck:**
+    - I encountered rate limiting issues with exessive llm requests needed for original process, and I consolidated the processing to use fewer llm calls
 
 **Goals planned for next week:**
-- 
+- Impliment complex question answering route
+- Implimnent search query route
+- Add user input constraints
 
 ### Justin Primc:
 **Goals planned for this week:**
