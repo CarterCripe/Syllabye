@@ -3,16 +3,28 @@
 ## Team Report (Group 13)
 
 ### Goals planned for this week:
--
+- Continue Integration
+- Begin prep for final presentation
+- Complete syllabus backend intitialization
+- Implement automated backend testing
 
 ### Team progress and issues:
 - **What the team did:**
+    - Made major steps forward in frontend/backend integration
+    - Delayed final presentation prep in favour of beta testing prep
+    - Implemented automated CI testing for frontend and backend
 - **What worked:**
+    - Syllabi can be easily added and retrieved in whole
 - **What team learned:**
+    - Initial Gemini integration used too many tokens for the free limit
 - **Where the team had trouble and where the team is stuck:**
+    - CI testing for frontend had not been discussed in length, and last minute focus on implementing this was required.
 
 ### Goals planned for next week:
-- 
+- Collect feedback from beta test
+- Begin prep for final presentation
+    - create poster
+- Finalize integration
 
 ## Contributions of Individual Team Members
 
