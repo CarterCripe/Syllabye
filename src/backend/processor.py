@@ -214,6 +214,29 @@ class SyllabusProcessor:
             print(json.dumps(json_syllabus, indent=4))
         return json_syllabus
 
+    def answer_tough_question(self):
+        prompt_name = 'toughQuestion:latest'
+        model = 'gemini'
+        try:
+            if is_debug():
+                print("DEBUGGING: (Tough Q) Awaiting LLM response...")
+            agent: Agent = Agent.get_agent(model, prompt_name, True, str(self.prompt_dir))
+            answer = agent.invoke(str(self.data))
+            if is_debug():
+                print(f"DEBUGGING: (Tough Q) raw_sections output: {answer}")
+            # Strips any md code fences that LLM possibly added
+            cleaned = {
+                'status': 'valid',
+                'answer': answer
+            }
+            return json.dumps(cleaned)
+
+        except Exception as e:
+            if is_debug():
+                print(f"Error generating sections: {e}")
+
+
+
 if __name__ == '__main__':
     os.environ['DEBUG_FLAG'] = str('True')
 
