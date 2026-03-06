@@ -3,6 +3,10 @@ import json
 import os
 from agents.agent import Agent
 from pathlib import Path
+try:
+    import tomllib  # Python 3.11+
+except ImportError:
+    import tomli as tomllib
 from dotenv import load_dotenv
 from debug_config import is_debug
 BASE_DIR = Path(__file__).resolve().parent
@@ -236,7 +240,16 @@ class SyllabusProcessor:
                 print(f"Error generating sections: {e}")
             return {'status': 'error'}
 
+    def get_search_info(self, classes):
+        model = 'gemini'
 
+    def inject_classes(self, classes):
+        with open("./agents/agent_prompts/searchInfo.toml", 'rb') as file:
+            toml_content = tomllib.load(file)
+            versions = [key for key in toml_content.keys() if key.startswith('v')]
+            version = max(versions, key=lambda v: int(v[1:]))
+        prompt = toml_content[version].replace("{supported_classes}", classes)
+        return prompt
 
 if __name__ == '__main__':
     os.environ['DEBUG_FLAG'] = str('True')
