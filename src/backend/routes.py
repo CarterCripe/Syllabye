@@ -54,8 +54,8 @@ def process_syllabus():
 def advanced_question():
     try:
         data = request.get_json()
-
-        return 'You will have a detailed response to your question here...'
+        processor = SyllabusProcessor(data)
+        return processor.answer_tough_question()
     except ValueError as e:
         if is_debug():
             print(e)

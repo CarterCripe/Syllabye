@@ -234,6 +234,7 @@ class SyllabusProcessor:
         except Exception as e:
             if is_debug():
                 print(f"Error generating sections: {e}")
+            return {'status': 'error'}
 
 
 
