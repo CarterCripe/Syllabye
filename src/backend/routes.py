@@ -66,7 +66,8 @@ def advanced_question():
 def search():
     try:
         data = request.get_json()
-
+        processor = SyllabusProcessor(data.question)
+        return processor.get_search_info(data.classes)
     except Exception as e:
         if is_debug():
             print(f"Error processing search: {e}")
