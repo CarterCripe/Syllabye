@@ -1,6 +1,7 @@
 from debug_config import is_debug
 from flask import Blueprint, request, jsonify
 from processor import SyllabusProcessor
+from llm import LLM
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
@@ -66,8 +67,8 @@ def advanced_question():
 def search():
     try:
         data = request.get_json()
-        processor = SyllabusProcessor(data.question)
-        return processor.get_search_info(data.classes)
+        llm = LLM(data.question)
+        return llm.get_search_info(data.classes)
     except Exception as e:
         if is_debug():
             print(f"Error processing search: {e}")
