@@ -228,7 +228,6 @@ class SyllabusProcessor:
             answer = agent.invoke(str(self.data))
             if is_debug():
                 print(f"DEBUGGING: (Tough Q) raw_sections output: {answer}")
-            # Strips any md code fences that LLM possibly added
             cleaned = {
                 'status': 'valid',
                 'answer': answer
@@ -237,11 +236,30 @@ class SyllabusProcessor:
 
         except Exception as e:
             if is_debug():
-                print(f"Error generating sections: {e}")
+                print(f"Error generating tough q answer: {e}")
             return {'status': 'error'}
 
     def get_search_info(self, classes):
         model = 'gemini'
+        prompt = self.inject_classes(classes)
+        try:
+            if is_debug():
+                print("DEBUGGING: (Search) Awaiting LLM response...")
+            agent: Agent = Agent.get_agent(model, prompt, False)
+            answer = agent.invoke(str(self.data))
+            if is_debug():
+                print(f"DEBUGGING: (Search) raw_sections output: {answer}")
+            try:
+                result = json.loads(answer)
+                result["status"] = "valid"
+            except json.JSONDecodeError:
+                result = {"status": "invalid"}
+            return result
+
+        except Exception as e:
+            if is_debug():
+                print(f"Error generating search info: {e}")
+            return {'status': 'error'}
 
     def inject_classes(self, classes):
         with open("./agents/agent_prompts/searchInfo.toml", 'rb') as file:
