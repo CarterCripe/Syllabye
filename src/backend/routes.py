@@ -60,3 +60,14 @@ def advanced_question():
         if is_debug():
             print(e)
         return jsonify({'status': 'error'}), 500
+
+# Search bar to get user's needs
+@api.route('/search', methods=['POST'])
+def search():
+    try:
+        data = request.get_json()
+
+    except Exception as e:
+        if is_debug():
+            print(f"Error processing search: {e}")
+        return jsonify({'status': 'error'})
