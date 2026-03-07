@@ -55,11 +55,13 @@ def process_syllabus():
 def advanced_question():
     try:
         data = request.get_json()
-        processor = SyllabusProcessor(data)
-        return processor.answer_tough_question()
-    except ValueError as e:
+        if not data or 'question' not in data:
+            return jsonify({'status': 'error', 'message': 'No question provided'}), 400
+        llm = LLM(data)
+        return jsonify(llm.answer_tough_question())
+    except Exception as e:
         if is_debug():
-            print(e)
+            print(f"Error processing tough question: {e}")
         return jsonify({'status': 'error'}), 500
 
 # Search bar to get user's needs
@@ -67,9 +69,11 @@ def advanced_question():
 def search():
     try:
         data = request.get_json()
-        llm = LLM(data.question)
-        return llm.get_search_info(data.classes)
+        if not data or 'question' not in data or 'classes' not in data:
+            return jsonify({'status': 'error', 'message': 'Missing question or classes'}), 400
+        llm = LLM(data['question'])
+        return jsonify(llm.get_search_info(data['classes']))
     except Exception as e:
         if is_debug():
             print(f"Error processing search: {e}")
-        return jsonify({'status': 'error'})
+        return jsonify({'status': 'error'}), 500
