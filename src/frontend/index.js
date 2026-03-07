@@ -382,7 +382,7 @@ btnQuickInfoBack.addEventListener("click", function(){
   switchScreen("quick", "home");
 });
 
-let btnSearchBack = document.getElementById("btnSearchBack");
+let btnSearchBack = document.getElementById("search-back-btn");
 btnSearchBack.addEventListener("click", function(){
   switchScreen("search", "home");
 });
