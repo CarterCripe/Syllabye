@@ -11,6 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent
 class LLM:
     def __init__(self, question):
         self.data = question
+        self.prompt_dir = BASE_DIR / 'agents' / 'agent_prompts'
 
     def answer_tough_question(self):
         prompt_name = 'toughQuestion:latest'
