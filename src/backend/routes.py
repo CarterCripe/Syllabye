@@ -1,6 +1,7 @@
 from debug_config import is_debug
 from flask import Blueprint, request, jsonify
 from processor import SyllabusProcessor
+from llm import LLM
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
@@ -54,8 +55,25 @@ def process_syllabus():
 def advanced_question():
     try:
         data = request.get_json()
-        return 'You will have a detailed response to your question here...'
-    except ValueError as e:
+        if not data or 'question' not in data:
+            return jsonify({'status': 'error', 'message': 'No question provided'}), 400
+        llm = LLM(data)
+        return jsonify(llm.answer_tough_question())
+    except Exception as e:
         if is_debug():
-            print(e)
+            print(f"Error processing tough question: {e}")
+        return jsonify({'status': 'error'}), 500
+
+# Search bar to get user's needs
+@api.route('/search', methods=['POST'])
+def search():
+    try:
+        data = request.get_json()
+        if not data or 'question' not in data or 'classes' not in data:
+            return jsonify({'status': 'error', 'message': 'Missing question or classes'}), 400
+        llm = LLM(data['question'])
+        return jsonify(llm.get_search_info(data['classes']))
+    except Exception as e:
+        if is_debug():
+            print(f"Error processing search: {e}")
         return jsonify({'status': 'error'}), 500

@@ -3,6 +3,10 @@ import json
 import os
 from agents.agent import Agent
 from pathlib import Path
+try:
+    import tomllib  # Python 3.11+
+except ImportError:
+    import tomli as tomllib
 from dotenv import load_dotenv
 from debug_config import is_debug
 BASE_DIR = Path(__file__).resolve().parent
