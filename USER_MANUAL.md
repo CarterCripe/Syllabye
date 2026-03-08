@@ -117,7 +117,7 @@ python3 app.py
 
 > **Note:** At this stage, Windows Defender/Firewall might show a pop-up asking if the program should be allowed access to internal and local networks. Click `Allow`.
 
-- Leave this PowerShell window open the entire time while using Syllabye
+- Leave this PowerShell/Terminal window open the entire time while using Syllabye
 - Stop it with `Ctrl+C` when done.
 ---
 
