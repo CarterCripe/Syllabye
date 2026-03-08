@@ -18,6 +18,7 @@ Syllabye is a browser extension that lets students upload their course syllabi a
 
 ### 1. Check if Python is Already Installed/Install Python
 Before downloading Python, check if you already have it installed. Open PowerShell and run:
+
 **Windows:**
 ```
 python --version
@@ -32,6 +33,7 @@ python3 --version
     - Go to https://www.python.org/downloads/release/python-3143/ and scroll down to the bottom of the page to the **Files** section, not the install manager, but in the version column select the appropriate download for your machine. (e.g `Windows installer (64-bit)`)
     - **Before clicking Install**, make sure to check the "Add Python to PATH" at the bottom of the first screen.
     - After installing, verify it worked: (You should see `Python 3.14.3`)
+
 **Windows:**
 ```
 python --version
@@ -58,6 +60,7 @@ Syllabye uses Google's Gemini AI to read and summarize syllabi.
 ### 4. Install backend dependencies
 - Open PowerShell. Navigate to the backend folder inside the project:
 - Replace `path/to` with the path of the extracted file
+
 **Windows:**
 ```
 cd path\to\Syllabye\src\backend
@@ -72,6 +75,7 @@ pip3 install -r requirements.txt
 
 ### 5. Create Your API Key File
 - While still inside `src/backend/`, you need to create a .env file that contains your API key
+
 **Windows (Powershell):**
 ```
 New-Item -Name ".env" -ItemType "file" -Value "GEMINI_API_KEY=your_key_here"
@@ -99,6 +103,7 @@ cat .env
 
 ## Running the App
 Start the backend before using the extension:
+
 **Windows:**
 ```
 cd path\to\Syllabye\src\backend
@@ -122,7 +127,7 @@ python3 app.py
 
 **See Syllabus** — Select the `See Syllabus` button from the home screen after adding a syllabus, from there, pick a course from the dropdown to view its full text.
 
-**Quick Info** — Pick a course and a topic (e.g. Late Policy, Grading Scale) to see that specific sections summarized information.
+**Quick Info** — Pick a course and a topic (e.g. Late Policy, Grading Scale) to see that specific sections' summarized information.
 
 **Search** — Type a question about one of your courses in the search bar and click Search. Make sure to mention which course the question is for by including its given course name. 
 
@@ -136,13 +141,13 @@ The backend is not running. Open a terminal, navigate to `src/backend/`, and run
 The `.env` file is missing or in the wrong folder. Make sure it is inside `src/backend/` and contains your API key. Redo Step 5.
 
 **`python` is not recognized**
-Python is not installed or was not added to PATH. Redo Step 1 and make sure you check "Add Python to PATH" during installation. On Mac/Linux try `python3` instead of `python`.
+Python is not installed or was not added to PATH. Redo Step 1 and make sure you check "Add Python to PATH" during installation. On Mac/Linux, try `python3` instead of `python`.
 
 **`pip` is not recognized**
-Same cause as above. On Mac/Linux try `pip3` instead of `pip`.
+Same cause as above. On Mac/Linux, try `pip3` instead of `pip`.
 
 **Quick Info shows "Not specified." for everything**
-Your Gemini API key is invalid or the backend hit an error. Check the terminal window for error messages. Make sure your `.env` file contains a valid key starting with `AIza`.
+Your Gemini API key is invalid, or the backend hit an error. Check the terminal window for error messages. Make sure your `.env` file contains a valid key starting with `AIza`.
 
 ---
 
