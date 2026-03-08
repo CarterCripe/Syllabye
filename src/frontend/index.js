@@ -282,6 +282,8 @@ async function populateQuickInfo(){
     courseSelect.appendChild(opt);
   });
 
+  //Some labels and values (Must match section keys returned by the backend).
+  //Subject to change, just a rough outline of some possible options
   const topics = [
     ["-- Select a topic --", ""],
     ["Course Info",          "course_info"],
@@ -320,83 +322,6 @@ async function populateQuickInfo(){
   topicSelect.addEventListener("change", updateDisplay);
 }
 
-//Send search query to backend router, returns the LLM routing descision (Relevent course information or AI search response)
-async function searchSyllabi(query, classString) {
-  const response = await fetch("http://localhost:6767/api/search", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question: query, classes: classString})
-  });
-  return await response.json();
-}
-
-//Runs the full search flow and displays results on the search screen.
-async function displaySearchResults(query) {
-  const resultDiv = document.querySelector('#scr-search-results div:last-child');
-  resultDiv.textContent = 'Searching...';
-
-  const syllabi = await getAllSyllabi();
-  const courseNames = Object.keys(syllabi);
-
-  if (courseNames.length === 0) {
-    resultDiv.textContent = 'No syllabi added yet. Add a syllabus before you begin searching.';
-    return;
-  }
-
-  try {
-    //Asks the LLM router which course and sections are relevent
-    //Send question + saved course names to backend LLM router
-    const routerResult = await searchSyllabi(query, courseNames.join(', '));
-
-    if (routerResult.status === 'error') {
-      resultDiv.textContent = 'Something went wrong. Please try again.';
-      return;
-    }
-
-    //If the LLM router can't find which class the question is for, tell user to be more specific
-    if (!routerResult.classes || routerResult.classes[0] === 'unknown') {
-      resultDiv.textContent = 'Please specify which class or classes your question is about.';
-      return;
-    }
-
-    //If search flow determines question is simple, pull from the already saved sections
-    if (routerResult.answerable) {
-      let answer = '';
-      routerResult.classes.forEach(courseName => {
-        const syllabus = syllabi[courseName];
-        if (syllabus) {
-          routerResult.sections.forEach(section => {
-            const info = syllabus?.sections?.[section];
-            if (info) {
-              //Format "C2 362 - late policy:\n(Answer)"
-              answer += courseName + ' — ' + section.replace(/_/g, ' ') + ':\n' + info + '\n\n';
-            }
-          });
-        }
-      });
-      resultDiv.textContent = answer || 'No information found for that query. Try rephrasing your question.';
-      return;
-    }
-
-    //If the search flow determines question is complex, sends raw syllabus text to /complex-question for AI quesion answering
-    const syllabusData = {};
-    routerResult.classes.forEach(name => {
-      if (syllabi[name]) syllabusData[name] = syllabi[name].raw_text;
-    });
-
-    const response = await fetch("http://localhost:6767/api/complex-question", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: query, syllabi: syllabusData })
-    });
-    const result = await response.json();
-    resultDiv.textContent = result.answer || 'No answer returned.';
-
-  } catch (err) {
-    console.error(err);
-    resultDiv.textContent = 'Error! Could not reach backend.';
-  }
-}
 
 /*
  * -------------------------
@@ -435,22 +360,9 @@ btnQuickInfo.addEventListener("click", function(){
   populateQuickInfo();
 });
 
-//Search from the home screen, when they input a search and select the search button brings them to the search page
 let btnSearch = document.getElementById("search-btn");
-btnSearch.addEventListener("click", async function(){
-  const query = document.getElementById("search-input").value.trim();
-  if (!query) return;
-  document.getElementById("search-results-input").value = query;
+btnSearch.addEventListener("click", function(){
   switchScreen("home", "search");
-  await displaySearchResults(query);
-});
-
-//Search button in the search page, user is already inside of the search page so just show them the results
-let btnSearchResults = document.getElementById("search-results-btn");
-btnSearchResults.addEventListener("click", async function(){
-  const query = document.getElementById("search-results-input").value.trim();
-  if (!query) return;
-  await displaySearchResults(query);
 });
 
 // Back (to home) screen switching buttons
