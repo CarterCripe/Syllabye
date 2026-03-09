@@ -3,7 +3,7 @@
 ## Team Report (Group 13)
 
 ### Goals planned for this week:
--
+- Complete backend, including search route and complex question route
 
 ### Team progress and issues:
 - **What the team did:**
@@ -12,7 +12,8 @@
 - **Where the team had trouble and where the team is stuck:**
 
 ### Goals planned for next week:
-- 
+- Full application testing
+- Impliment user input constraints
 
 ## Contributions of Individual Team Members
 
@@ -43,15 +44,27 @@
 
 ### Carter Cripe:
 **Goals planned for this week:**
+- Impliment complex question answering route
+- Implimnent search query route
+- Add user input constraints
 
 **Team progress and issues:**
 - **What team member did:**
+    - Determined workaround for class identification issue
+    - Implimented complex question answering route for backend
+    - Implimented search query route for backend
+    - Created plan to impliment input constraints
 - **What worked:**
+    - Using prebuilt framework from earlier in the project greatly sped up the process of building these routes
+    - Communication with the team regarding structure made it simple to determine what was needed
 - **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:** 
+    - I learned that it is important to keep track of variable types when working in a typeless language like python. I had a issue for a while in the code where a variable that I thought was a python dictionary was actually a plain json string, which caused issues.
+- **Where the team member had trouble and where the team member is stuck:**
+    - I got really sick part way through the week and was rendered unable to meet with the group or do too much to help with some of the collaborative items on the agenda.
 
 **Goals planned for next week:**
-- 
+- Finish implimenting user input constraints
+- Full testing for the application
 
 ### Justin Primc:
 **Goals planned for this week:**
