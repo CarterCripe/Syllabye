@@ -55,12 +55,16 @@
 
 ### Justin Primc:
 **Goals planned for this week:**
+- Fix any issues with the API and LLM regarding integration
+- Link the `Quick Info` & `Search` buttons/pages from frontend to backend to correctly give the user information
+- Update team documentation, User/Developer guides, and README
 
 **Team progress and issues:**
-- **What team member did:**
-- **What worked:**
-- **What team member learned:**
-- **Where the team member had trouble and where the team member is stuck:** 
+- **What team member did:** Updated the team documentation (User/Developer guides & README). Connected the search functionality from the frontend to the backend so the users' questions get correctly answered by the LLM. Fixed some issues in the routes that were causing errors.
+- **What worked:** Communication between team members to explain their sections of code and what they envisioned the final product to do.
+- **What team member learned:** I learned how through the use of routes to trigger the LLM to give the user either a response that has already been generated or a new response.
+- **Where the team member had trouble and where the team member is stuck:** I had trouble figuring out how to connect the backend with the frontend while triggering the LLM response.
 
 **Goals planned for next week:**
-- 
+- Record demo for application
+- Give final presentation
