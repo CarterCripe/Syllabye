@@ -4,16 +4,29 @@
 
 ### Goals planned for this week:
 - Complete backend, including search route and complex question route
+- Create final presentation poster
 
 ### Team progress and issues:
 - **What the team did:**
+    - fixed frontend naming convention inconsistancy
+    - recorded feedback from beta test
+    - fully integrated frontend & backend, fulfilling all launch use cases
+    - updated documentation
 - **What worked:**
+    - Integration was a success -- users can now add a syllabus, then use the quick info or search options to answer related questions
+    - Beta testing was (mostly) successful
 - **What team learned:**
+    - how to create a poster to the specs given, including affiliation (in this case, OSU / CS 362)
+    - Fixing bugs using the GitHub issue board as a guide
+    - Creating bug reports on the GitHub issue board
 - **Where the team had trouble and where the team is stuck:**
+    - the primary piece of feedback from the beta test was some reported terminal errors. We've been unable to replicate, and we suspect that despite the report saying the user was using Powershell, the user may have been tunnelled into a linux server (such as the ENGR flip servers) due to them describing "bash" errors, and the command they had an issue with being a standard part of Powershell for twenty years
 
 ### Goals planned for next week:
 - Full application testing
-- Impliment user input constraints
+- Implement user input constraints
+- Record demo video
+- final presentation
 
 ## Contributions of Individual Team Members
 
@@ -44,8 +57,8 @@
 
 ### Carter Cripe:
 **Goals planned for this week:**
-- Impliment complex question answering route
-- Implimnent search query route
+- Implement complex question answering route
+- Implement search query route
 - Add user input constraints
 
 **Team progress and issues:**
@@ -63,7 +76,7 @@
     - I got really sick part way through the week and was rendered unable to meet with the group or do too much to help with some of the collaborative items on the agenda.
 
 **Goals planned for next week:**
-- Finish implimenting user input constraints
+- Finish implementing user input constraints
 - Full testing for the application
 
 ### Justin Primc:
