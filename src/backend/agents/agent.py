@@ -29,7 +29,9 @@ try:
     GEMINI_AVAILABLE = True
 except ImportError:
     genai = None
+    print("CRITICAL ERROR: Gemini could not be imported! Please try again later...")
     GEMINI_AVAILABLE = False
+
 
 
 class Agent(metaclass=ABCMeta):
