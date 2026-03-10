@@ -165,6 +165,17 @@ class GeminiAgent(Agent):
 
     def __init__(self, system_prompt: str, api_key: str, model: str):
         super().__init__(system_prompt)
+        global GEMINI_AVAILABLE, genai, types
+        if not GEMINI_AVAILABLE:
+            try:
+                from google import genai
+                from google.genai import types
+                GEMINI_AVAILABLE = True
+            except ImportError:
+                genai = None
+                print("CRITICAL ERROR: Gemini could not be imported! Please try again later...")
+                GEMINI_AVAILABLE = False
+
         self.client = genai.Client(api_key=api_key)
         self.model_name = model
         self.system_prompt = system_prompt
