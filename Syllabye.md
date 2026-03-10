@@ -47,7 +47,7 @@ Currently, there are two different approaches to accessing a class’s syllabus.
 
 ## Novelty
 
-Syllabye's key innovation is focused on bringing all syllabi together into a single, browser-integrated interface that enables cross-syllabus searching. Unlike Canvas's approach or traditional file downloads, Syllabye allows students to search across all of their syllabi simultaneously from one location. By keeping this functionality within the browser extension, users across the entire spectrum of technical understanding, so anyone can feel comfortable using the tool without needing to learn new software or file management systems.
+Syllabye's key innovation is focused on bringing all syllabi together into a single, browser-integrated interface that enables cross-syllabus searching. Unlike Canvas's approach or traditional file downloads, Syllabye allows students to search across all of their syllabi simultaneously from one location. By keeping this functionality within the browser extension, users from across the entire spectrum of technical understanding can feel comfortable using the tool without needing to learn new software or workflows.
 
 ## Effects
 
@@ -57,28 +57,28 @@ With Syllabye, students will be able to more efficiently access their course pol
 
 ## Functional Requirements (Use Cases)
 
-Use Case 1: Adding a New Syllabus (Justin Primc)  
+Use Case 1: Adding a New Syllabus  
 Actors: Student / User  
 Triggers: Student begins a new course and receives a syllabus.  
-Preconditions: User has installed Syllabye and has access to a PDF of their syllabus  
+Preconditions: User has installed Syllabye and has access to a PDF or text file of their syllabus  
 Postconditions: Syllabus is stored in the extensions database, is searchable through the extension, and appears to the user.  
 List of steps:
 
 1. User opens the Syllabye extension from their browser  
 2. User selects the “Add New Syllabus” button  
-3. User enters course information and uploads a PDF of their syllabus  
+3. User enters course information and uploads a PDF or text file of their syllabus  
 4. Course appears in the user’s syllabus list
 
 Extensions/variations of the success scenario:
 
-* User pastes the direct text instead of uploading a file
+* User pastes the direct text instead of uploading a file (Note 3/9: This was delayed post v1.0)
 
 Exceptions: failure conditions and scenarios: 
 
-* File is not a valid PDF: System displays an error message  
-* Duplicate course name: System displays an error and asks the user to confirm overwrite or rename course.
+* File is not a valid PDF or text file: System displays an error message  
+* Input course name matches another course name already entered. Previous course information will be overwritten.
 
-Use Case 2: Searching Syllabus (Brennan Duman)  
+Use Case 2: Searching Syllabus  
 Actors: Student / User  
 Triggers: Student opens Syllabye  
 Preconditions: Syllabye is installed and a syllabus has been added  
@@ -87,7 +87,7 @@ List of steps:
 
 1. User selects syllabus to search from provided menu of available syllabi  
 2. User is presented with a search input  
-3. User searches for information, and Syllabye provides text matches (a la “Ctrl+F” find-on-page functionality)
+3. User searches for information, and Syllabye provides relevant information
 
 Extensions/variations of the success scenario:
 
@@ -95,20 +95,18 @@ Extensions/variations of the success scenario:
 
 Exceptions: failure conditions and scenarios:
 
-* No matching text can be found; user must use different search terms to find information  
-* No matching text can be found; desired information is not included within syllabus
+* No relevant information can be found; user must use different search terms to find information  
+* No relevant information can be found; desired information is not included within syllabus
 
-Use Case 3: Saving Syllabus information (Carter Cripe)  
+Use Case 3: Viewing syllabus text  
 Actors: Student/ User  
 Triggers: Student opens Syllabye  
 Preconditions: Syllabye is installed and syllabus has been added  
-Postconditions: User successfully saved information for fast access later  
+Postconditions: User has access to the original text of the syllabus  
 List of steps (success scenario):
 
-1. User searches for desired content from a syllabus  
-2. User selects “Save information.”  
-3. User then exits to the home page  
-4. Information can be found via the saved information button.
+1. User selects the “View Syllabus” button  
+2. Syllabye shows the raw text of the syllabus
 
 Extensions/variations of the success scenario
 
@@ -116,18 +114,19 @@ Extensions/variations of the success scenario
 
 Exceptions: failure conditions and scenarios
 
-* Saved information limit is reached
+* “Syllabus” file contents were not a class syllabus
 
 ## Non-Functional Requirements
 
 * Usability & Accessibility: The interface is simple enough so that a first-time user can successfully and easily add and search a syllabus within 2 minutes without external help.  
-* Data Privacy: All syllabus documents and their users data must be stored on their users devices without transmission to external servers to protect student privacy.  
+* Data Privacy: All syllabus documents and their users data must be stored on their users devices minimum transmissions\* to external servers to protect student privacy.  
+  * \*apart from LLM API calls, which is only required for initial processing  
 * Performance & Speed: The extensions search function must return a result to the user within 2 seconds for queries across all user-stored syllabi. The extensions pop-up interface must load in under 2 seconds.
 
 ## External Requirements
 
 * Error Handling: Syllabye must handle common error scenarios, including invalid search queries and incomplete uploads. The system must validate all user inputs and provide clear error messages.  
-* Installation: The extension will be packaged for ease of access through official browser extension stores (Chrome Web Store, Firefox, Microsoft Edge). User can install Syllabye with a single click from these stores.  
+* Installation: The extension will be packaged for ease of access through official browser extension stores (Chrome Web Store, Firefox, Microsoft Edge). Users can install Syllabye with a single click from these stores.  
 * Build & Development: The project’s repository will allow other developers to clone the repository and build the extension from source for themselves within 20 minutes.  
 * Project Scope: Three team members working over the nine weeks of the course. Syllabye is appropriately sized with core features of (upload, storage, and search) that are all achievable as an MVP within six weeks, leaving three weeks for testing and implementation.
 
@@ -168,11 +167,12 @@ Week 2:
 
 Week 3:
 
-- Create Project Plan \- ADD MORE INFO
+- Create architectural layout (~~React~~ (changed to HTML) \-\> Flask \-\> LLM)
 
 Week 4:
 
-- Create Project Plan \- ADD MORE INFO
+- Develop goals for Minimum Viable Product & potential stretch goals  
+- Define use cases
 
 Week 5:
 
@@ -216,6 +216,9 @@ Frontend: HTML5/CSS/JavaScript – Industry standard: these tools/languages are 
   * Week 7: Data sorting and processing functional \- Use Case 2  
   * Week 8-9 Testing and Refinement \- All Use Cases  
 * Justin Primc – Full Stack Developer: Has experience with backend & frontend  
+  * Week 5: Documentation  
+  * Week 6: Frontend/backend integration \- Use Case 1  
+  * Week 7-9: Full integration & testing \- All Use Cases  
 * Brennan Duman – Front End Developer: Has experience with HTML/CSS Web design  
   * Week 5: Proof of Concept (hard coded) – Use Case 2  
   * Week 7: API Integration – Use Case 1 & 3  
@@ -310,7 +313,7 @@ The Presentation Layer is everything the user sees. Upon initial loading, the us
 
 1. Add a new Syllabus. Selecting this option will pull up a sub-interface that will allow a user to drag-and-drop a pdf file, a text file, or raw text. Users will also be able to input a course name that will be associated with the syllabus.  
 2. Retrieve Syllabus. Selecting this option will allow users to select a course from a list generated from the saved syllabi. Then, the raw text of the selected course’s syllabus will be provided.   
-3. Retrieve Specific Information. Selecting this option will allow a user to select a course from a list generated from the saved syllabi, as well as an information category. These information categories include but will not be limited to a) assignment deadlines, b) AI use policy, c) grade weighting, and d) attendance policy. These information categories will correspond to processed categories on the backend. Once a course and category has been selected, the user will be presented with the information that matches that category from the selected course (if any exist).  
+3. Retrieve Specific Information/”Quick Info”. Selecting this option will allow a user to select a course from a list generated from the saved syllabi, as well as an information category. These information categories include but will not be limited to a) assignment deadlines, b) AI use policy, c) grade weighting, and d) attendance policy. These information categories will correspond to processed categories on the backend. Once a course and category has been selected, the user will be presented with the information that matches that category from the selected course (if any exist).  
 4. Search syllabi. Selecting this option will allow users to enter information into a search bar, which will then be matched to specific information from a syllabus. If the requested information matches pre-processed data, the user will be show the pre-processed information. Otherwise, the backend API will be called and will generate a specific answer for the user.
 
 The Business Layer handles communication with the backend API and any frontend processing required. This includes pdf to text conversion, as well as parsing information from the backend for proper display to the user.
@@ -319,7 +322,7 @@ The Business Layer handles communication with the backend API and any frontend p
 
 The backend is responsible for processing the user’s syllabus information and returning the information as a usable JSON object to the frontend for display. The backend functions as a REST API. It receives requests from the frontend containing raw data, and it processes the data before returning it to the frontend. The types of data processing are as follows:
 
-1. Processing Raw Syllabi: When a user adds a new syllabus to the frontend, the frontend will send it to the backend to process. The backend will take the raw data and use an agentic llm system to break the information down into many relevant categories. It will then reassemble the produced information into a structured JSON object containing presentable pre-sorted information.  
+1. Processing Raw Syllabi: When a user adds a new syllabus to the frontend, the frontend will send it to the backend to process. The backend will take the raw data and use an agentic LLM system to break the information down into many relevant categories. It will then reassemble the produced information into a structured JSON object containing presentable pre-sorted information.  
 2. Answering complex user questions: Most basic questions should be answerable by the frontend using the presorted data from the initial data processing, but if the user has a complex question, it will resend the backend the raw syllabus information, and the backend will use an LLM agent to answer the complex question and return the answer.
 
 ## Coding Guideline
@@ -340,7 +343,7 @@ These guides and styles will be enforced through a pre-merge check. That is, bef
 
 ## Test Plan
 
-Testing is broken up into three general sections: 1\) Frontend 2\) Backend and 3\) Integration.
+Testing is broken up into three general sections: 1\) Frontend, 2\) Backend, and 3\) Integration.
 
 ### Frontend
 
@@ -368,11 +371,12 @@ The backend will implement unit testing using Python’s pytest framework. The t
    2. LLM parsing extracted the correct categories used in pre-processed requests (grading policy, late work, etc.)  
    3. The JSON structure is valid and contains all required fields  
    4. Outputs match the expected results for that test syllabus  
-   5. The processing of a syllabus is completed within 5-7 seconds
+   5. The processing of a syllabus is completed within 5-7 seconds  
+4. The output quality will be rigorously graded by a separate program (LLM based), and prompt revisions will be made to the processing program until the grade reaches a satisfactory level
 
 ### Integration
 
-Integration testing will validate that the frontend and backend correctly work together through the API layer. The primary focus in ensuring that the data can be passed back and forth between the two layers.
+Integration testing will validate that the frontend and backend correctly work together through the API layer. The primary focus is ensuring that the data can be passed back and forth between the two layers.
 
 Integration tests will verify three critical data flows.
 
@@ -386,7 +390,7 @@ Integration tests will verify three critical data flows.
    3. Frontend displays this data to the user correctly  
 3.  Frontend → Backend → Frontend (Custom Requests)  
    1. Frontend sends a search query created by the user  
-   2. Backend processes the request, may involvethe  use of LLM  
+   2. Backend processes the request, may involve the  use of LLM  
    3. Backend returns results to the frontend   
    4. Frontend displays the accurate search results to the user
 
