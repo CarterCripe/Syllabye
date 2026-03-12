@@ -404,3 +404,34 @@ The extension will be delivered alongside a user guide that will have the follow
 4. How to retrieve the original text of the syllabus
 
 The extension will also be delivered alongside an extension overview that will explain in simple terms the capabilities of the extension, as well as its potential use cases. This matches with the standards shown by extensions on the Google Chrome Web Store.
+
+# Reflections
+
+## Brennan Duman
+
+Lessons learned:
+
+1. Getting into the habit of making weekly in-depth reports of my progress was really freeing, and made it very easy to reference what progress I’d made. At one point I went to see what I’d done earlier in the term prior to when we started making the reports, and it was both surprising and frustrating.  
+2. Working on a project where I didn’t understand in-depth how the entire thing works. I can tell you the general model, and given time I could look through our documentation and code to pick up the pieces, but overall the nitty-gritty details didn’t matter to me. My job was to focus on the frontend and getting that to work as best as I could, and knowing that the other members of my team were capable of completing the rest to a similarly high standard.  
+3. CI tests. I’d noticed in the past that public repos would have the test-validation markers (either checkmarked or crossed out), but I never thought anything of it. Integrating tests that ran automatically like that into the project was fascinating hands-on-look into how automation can directly aid developers. There weren’t very many pre-built actions that fit  the use case I needed for the frontend, so figuring out the logic of how .yml files work and building my own was an interesting learning experience.
+
+In general, this was a really cool project. I enjoyed working with the other members of my team, especially to solve an issue we’d all experienced. My only regret is that we weren’t able to get the more LLM-based features ready for our beta test, as I feel that’s where the extension really shines.
+
+## Carter Cripe
+
+1. Lesson 1: Designing projects for functional overlap  
+   1. In this project during the planning phase, I realized that a few of our different functions that we were planning had overlap. Because of that, I was able to think about ways that I could create infrastructure that served all functions at the same time instead of designing separate infrastructure for each function. This allowed me to spend more time creating a better designed backend because I was just working on one universal system.  
+2. Lesson 2: Creating both user and developer documentation  
+   1. Another lesson that I learned was to make sure that I create not only user documentation, but also docu	mentation for my teammates who needed to use my system too. Because I was designing an API, it was really important that my teammates knew the proper format to make API requests, and also the exact output format so that they could use the information that they got from the API. I haven't really done that in the past, and so it was great for me to practice making sure my documentation was up to date and useful.   
+3. Lesson 3: Communicating timelines accurately  
+   1. Another lesson that I learned was how important it is to properly communicate timelines with a team. In this project I was in charge of an important feature that the other team members needed to build their parts. Initially I predicted that I would complete my section quickly, but I was delayed by unforeseen bugs and issues. There are always unforeseen issues that emerge, and so I learned how important it is to build those into my timeline estimates so that I can give my team accurate information.
+
+## Justin Primc
+
+1. Lesson 1:GitHub Actions  
+   1. I had never used the GitHub actions feature before this project. So using that as a centralized form of testing which triggers automatically was very nice. The hardest part about using these was getting the .yaml python-application set up and configured correctly. It was especially hard because of our project's use of an API key so getting tests that could run without those credentials was very important.  
+2. Lesson 2: Using an API and LLM  
+   1. Before this project I had never used an API key or an LLM for any other projects. Getting the Gemini key to work was a completely new experience for me and it caused a decent amount of stress when the key wouldn’t link correctly. But after understanding the key and how to correctly use it, the rest was fairly simple. Using the structure built by my other teammates I was able to quickly comprehend what was required for integration and getting the LLM to return its structured data.  
+3. Lesson 3: Frontend to backend integration  
+   1. I have worked on the frontend and backend of code before, but I had never been solely focused on the integration between these two pieces. This project taught me what this integration between pieces is really like. Having never worked with Python or Chrome extensions almost everything was new so taking some basics I already knew and using that to build upon and improve my teammates code was interesting. Through my time working on both sides of the application I gained a much better understanding of how to build a full application.
+
